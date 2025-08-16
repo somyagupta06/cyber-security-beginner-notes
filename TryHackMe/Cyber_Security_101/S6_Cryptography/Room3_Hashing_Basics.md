@@ -329,36 +329,9 @@ Breakdown:
 
 
 
-## 10. Windows Password Hashes
-- Uses **NTLM** (based on MD4).
-- Looks similar to MD4 and MD5 → need context to identify.
-- Stored in **SAM (Security Accounts Manager)**.
-- Windows prevents normal users from dumping SAM → tools like **Mimikatz** bypass this.
-- SAM contains:
-  - **NT hashes**
-  - **LM hashes** (older, weaker)
 
 
-
-## 11. How to Identify Hashes
-- Use [Hashcat Example Hashes](https://hashcat.net/wiki/doku.php?id=example_hashes) for reference.
-- Check:
-  - **Prefix**
-  - **Length** of hash
-  - **Encoding type** (Base64, Hex, etc.)
-  - **Research** the system/application where it came from
-
-
-
-## 12. Quick Example
-If you find:
-- `$2b$` = bcrypt  
-- `12` = cost factor  
-- `abcdefghijklmno` = salt  
-- Rest = hash
-
-
-## 13. Important Tips
+## 10. Important Tips
 - Combine **tools + manual analysis** for accuracy.
 - Context helps avoid wrong assumptions.
 - Prefix is the easiest clue in Unix/Linux hashes.
