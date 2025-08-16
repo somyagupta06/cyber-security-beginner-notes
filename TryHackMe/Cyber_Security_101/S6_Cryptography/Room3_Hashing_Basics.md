@@ -11,8 +11,10 @@
 
 
 **Example:**
-File1: T -> binary 01010100 -> hex 54
-File2: U -> binary 01010101 -> hex 55
+
+File 1: T -> binary 01010100 -> hex 54
+
+File 2: U -> binary 01010101 -> hex 55
 
 - Files differ by **1 bit**, but MD5, SHA1, SHA256 hashes are completely different.
 
@@ -108,7 +110,7 @@ strategos@g5000 /usr/share/wordlists> head rockyou.txt
 
 **Example:**  **Adobe breach**
 
- -Encrypted passwords in a weak format
+ - Encrypted passwords in a weak format
  - Stored password hints in plain text → password could be retrieved easily
  - Lesson: Weak encryption is almost as bad as storing plaintext.
 
@@ -198,6 +200,7 @@ Result: AL4RMc10kYUV*^(=g°_!
 ```
 4. Calculate hash of combined string using chosen algorithm.
 5. Store both the hash and the salt in the database.
+
 **Important:** Never store the actual password. Only store hash + salt.
 ## 5. Why Not Use Encryption Instead?
 - Encryption can also store passwords securely, but:
@@ -497,28 +500,34 @@ How it works:
 - Combines:
   1. Secret Key → Proves authenticity.
   2. Hashing Algorithm → Proves integrity.
+
 **Steps in HMAC:**
-1.Pad the secret key to match the hash function’s block size.
-2.XOR padded key with constant 1.
-3.Append the message → Hash it.
-4.XOR padded key with constant 2 → Hash again.
-5.Final result → HMAC value.
+
+ 1. Pad the secret key to match the hash function’s block size.
+ 2. XOR padded key with constant 
+ 3. Append the message → Hash it.
+ 4. XOR padded key with constant 2 → Hash again.
+ 5. Final result → HMAC value.
+
+ <img width="497" height="590" alt="Screenshot 2025-08-16 at 9 35 37 AM" src="https://github.com/user-attachments/assets/78bf9294-eaf2-44a1-8c86-2a466938ce5c" />
 
 **Formula:**
 
 HMAC(K, M) = H( (K ⊕ opad) || H( (K ⊕ ipad) || M ) )
+
 Where:
-K = Secret key
-M = Message
-opad & ipad = Constants for outer & inner padding
-H = Hash function (e.g., SHA256)
-|| = Concatenate
+- K = Secret key
+- M = Message
+- opad & ipad = Constants for outer & inner padding
+- H = Hash function (e.g., SHA256)
+- || = Concatenate
 ## 4. Why HMAC is Strong
 1. Without the secret key, attacker cannot generate the correct HMAC even if they know the message.
 2. Used in:
 - Secure API authentication
 - Digital signatures
 - Network security protocols (e.g., TLS, IPsec)
+
  **Quick Example in Python**
 ``` bash
  import hmac, hashlib
