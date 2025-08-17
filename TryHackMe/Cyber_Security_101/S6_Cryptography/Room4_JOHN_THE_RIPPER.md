@@ -70,14 +70,7 @@ Even though hashes are one-way, they can still be **cracked** using special tech
 
 # 🔑 John the Ripper — Installation & Wordlists
 
-In this room, we will be using:
-- **Jumbo John** version of John the Ripper  
-- **RockYou password list**
 
-If you are using the **attached virtual machine** or **AttackBox**, John the Ripper is already installed.  
-👉 You don’t need to install it manually.  
-
----
 
 ## ⚙️ Versions of John the Ripper
 
@@ -123,6 +116,7 @@ sudo apt install john
 2. Extract the zip and run john.exe.
 ## 📚 Wordlists
 To crack hashes with dictionary attacks, we need wordlists (collections of possible passwords).
+
 **🔍 Where to Find Wordlists?**
  - On Kali/AttackBox:
    /usr/share/wordlists contains useful lists.
@@ -142,12 +136,12 @@ To crack hashes with dictionary attacks, we need wordlists (collections of possi
 ``` bash
 tar xvzf rockyou.txt.tar.gz
 ```
-# 🔑 John the Ripper – Basic Usage Notes  
+# 🔑 John the Ripper – Basic Usage 
 
 There are multiple ways to use **John the Ripper (JtR)** to crack simple hashes.  
 Here we will cover **basic syntax, automatic cracking, identifying hashes, and format-specific cracking**.  
 
----
+
 
 ## 📌 John Basic Syntax  
 
@@ -517,7 +511,9 @@ It can start generating possible passwords like:
 - Mike!  
 - mike2024  
 <img width="484" height="81" alt="Screenshot 2025-08-16 at 3 48 17 PM" src="https://github.com/user-attachments/assets/8e2b6ec8-622d-4835-a7b6-0e924dcea162" />
+
 <img width="269" height="64" alt="Screenshot 2025-08-16 at 3 48 39 PM" src="https://github.com/user-attachments/assets/9d453fa4-c86a-4f8d-98f5-f99ba481f679" />
+
 <img width="894" height="342" alt="Screenshot 2025-08-16 at 3 50 26 PM" src="https://github.com/user-attachments/assets/c7423b1b-8de7-4e75-9b0a-78cbad1165f3" />
 
 
@@ -584,8 +580,9 @@ Custom rules are defined inside the **john.conf** file.
 Each rule starts with:
 ``` bash
 [List.Rules:RuleName]
-This defines the **name** of the rule.
 ```
+This defines the **name** of the rule.
+
 
 
 ## 🔤 Basic Modifiers (Rule Syntax)
