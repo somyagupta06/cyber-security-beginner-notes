@@ -64,8 +64,8 @@ You are currently logged in as **bandit13@bandit**.
     ```
 
 
-3. Yahan:
-- -i sshkey.private → tumhari private key ka path
+3. Here:
+- -i sshkey.private → your private key path
 - -p 2220 → correct port
 - bandit14@bandit.labs.overthewire.org → username + host
 
@@ -74,7 +74,7 @@ You are currently logged in as **bandit13@bandit**.
 - If still permission is denied , use:
   
 chmod 600 sshkey.private
-- Try tco connect again.
+- Try to connect again.
 ---
 # SSH Public–Private Key Authentication Guide
 
