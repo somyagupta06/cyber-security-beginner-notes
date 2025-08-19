@@ -5,7 +5,7 @@
 ### 📂 Command(s) used: 
 
 👉 
-- nc 127.0.0.1 30000                 (IP password of your localhost)
+- nc 127.0.0.1 30000                 (IP address of your localhost)
 -  MU4VWeTyJk8ROof1qqmcBPaLh7lDCPvS   (password)
      
 <img width="383" height="117" alt="Screenshot 2025-08-17 at 9 50 18 PM" src="https://github.com/user-attachments/assets/9f1fb6f9-43b3-4d35-9512-1e8d34504c5d" />
