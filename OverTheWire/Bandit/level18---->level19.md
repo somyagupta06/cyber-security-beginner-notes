@@ -10,6 +10,7 @@
 ## 🧠 Notes / What I learned:
 👉  ## Command Used (Explain)
 - **ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"**
+- 
 **Other Commands**
 - SSH with no profile and no rc:  
 ssh -p 2220 bandit18@bandit.labs.overthewire.org "bash --noprofile --norc"  
