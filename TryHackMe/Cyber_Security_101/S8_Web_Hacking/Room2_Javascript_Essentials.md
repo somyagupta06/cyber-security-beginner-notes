@@ -1,4 +1,4 @@
-# 🚀 JavaScript Basics (Beginner Notes)
+# 🚀 JavaScript Basics 
 
 JavaScript (JS) is a **programming language** that makes websites **interactive**.  
 
@@ -103,7 +103,7 @@ console.log("Hello, World!");
 ## 🔑 7. Control Flow (if-else)
 
 Example:
-``` javascript`
+``` javascript
 let age = 18;
 if (age >= 18) {
 console.log("You are an adult.");
@@ -124,7 +124,7 @@ let result = x + y;
 console.log("The result is: " + result);
 ```
 ---
-# JavaScript in HTML (Easy Notes)
+# JavaScript in HTML 
 
 JavaScript (JS) makes webpages interactive.  
 It works together with **HTML (structure)** and **CSS (style)**.  
