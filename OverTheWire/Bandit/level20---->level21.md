@@ -1,14 +1,15 @@
-# 🔐 Bandit Level: Bandit19 ➝ Bandit20
+# 🔐 Bandit Level: Bandit20 ➝ Bandit21
 
 ## 📂 Command(s) used:
 👉
 - ls -l
-- echo "<Bandit20_password>" | nc -l -p 12345 & ./suconnect 12345
+- echo "0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO" | nc -l -p 12345 & sleep 1 && ./suconnect 12345
 
+<img width="577" height="107" alt="Screenshot 2025-08-25 at 1 52 15 PM" src="https://github.com/user-attachments/assets/1ff5be0e-4875-455b-b084-afb7b8e2f65b" />
 
 
 ## 📄 Password found:
-👉 0qXahG8ZjOVMN9Ghs7iOWsCfZyXOUbYO
+👉 EeoULMCra2q0dSkYj561DX7s1CpBuOBt
 
 ## 🧠 Notes / What I learned:
 👉
