@@ -1,4 +1,4 @@
-# DATABASES — EASY NOTES
+# DATABASES 
 
 ## 1. WHAT IS A DATABASE?
 - A database is like a digital cupboard where data is stored in an organized way.
@@ -19,19 +19,21 @@
 - Relationships between tables are possible.
 - Best when data format is consistent.
 - Example:
+
 Table: Users
-+----+----------+---------------+
+
 | id | username | email |
-+----+----------+---------------+
+|----|----------|------|
 | 1 | JohnDoe | john@mail.com |
 | 2 | AliceW | alice@mail.com|
-+----+----------+---------------+
+
 
 ### b) Non-Relational Database (NoSQL)
 - Data stored in **flexible format** (documents, key-value, graphs).
 - Each record doesn’t have to follow the same structure.
 - Best when data is varied.
 - Example (document in MongoDB):
+``` bash
 {
 _id: "4556712cd2b2397ce1b47661",
 name: { first: "Thomas", last: "Anderson" },
@@ -40,7 +42,7 @@ occupation: ["The One"],
 steps_taken: 4738947387743977493
 }
 
-
+```
 
 ## 3. SQL vs NoSQL — Quick Comparison
 
@@ -63,12 +65,12 @@ steps_taken: 4738947387743977493
 - **Rows** = individual records.
 - Example:
 Table: Books
-+----+--------------------------+--------------+
+
 | id | Name | Published_on |
-+----+--------------------------+--------------+
+|----|----------|------|
 | 1 | Android Security Intern. | 2014-10-14 |
 | 2 | Learn SQL Basics | 2020-05-10 |
-+----+--------------------------+--------------+
+
 
 
 
@@ -79,31 +81,32 @@ Table: Books
 - A unique column that **identifies each row**.
 - Example: Student roll number, Book ID.
 - Only **one** primary key per table.
+
 Table: Authors
-+----+-----------+
 | id | name |
-+----+-----------+
+|----|----------|
 | 1 | John Wick |
 | 2 | Neo |
-+----+-----------+
+
 
 ### Foreign Key
 - A column that **links to a primary key** in another table.
 - Creates a relationship between tables.
 - Example:
+
 Table: Books
-+----+----------------------+-----------+
+
 | id | Name | author_id |
-+----+----------------------+-----------+
+|----|----------|------|
 | 1 | Android Internals | 1 |
 | 2 | Matrix Explained | 2 |
-+----+----------------------+-----------+
+
 Here:
 
 - author_id in Books → refers to id in Authors
 - This connects books with their authors
 ---
-# SQL (Structured Query Language) — EASY NOTES
+# SQL (Structured Query Language) 
 
 ## 1. What is SQL?
 - SQL = Structured Query Language
@@ -272,15 +275,14 @@ DESCRIBE table_name;
 DESCRIBE book_inventory;
 ```
 Output Example:
-``` bash
-+------------------+--------------+------+-----+---------+----------------+
+
+
 | Field | Type | Null | Key | Default | Extra |
-+------------------+--------------+------+-----+---------+----------------+
+|-------|------|------|-----|---------|-------|
 | book_id | int | NO | PRI | NULL | auto_increment |
 | book_name | varchar(255) | NO | | NULL | |
 | publication_date | date | YES | | NULL | |
-+------------------+--------------+------+-----+---------+----------------+
-```
+
 
 
 ### ALTER TABLE
@@ -340,7 +342,7 @@ ALTER TABLE book_inventory ADD page_count INT;
 DROP TABLE book_inventory;
 ```
 ---
-# SQL CRUD OPERATIONS — EASY NOTES
+# SQL CRUD OPERATIONS 
 
 CRUD = **Create, Read, Update, Delete**  
 👉 These are the four basic operations for managing data inside a database.
@@ -377,25 +379,24 @@ SELECT * FROM table_name;
 SELECT * FROM books;
 ```
 Output:
-``` bash
-+----+----------------------------+----------------+------------------------------------------------------+
+
+
 | id | name | published_date | description |
-+----+----------------------------+----------------+------------------------------------------------------+
+|----|----------|------|-----|
 | 1 | Android Security Internals | 2014-10-14 | An In-Depth Guide to Android's Security Architecture |
-+----+----------------------------+----------------+------------------------------------------------------+
-```
+
+
 - Syntax (specific columns):
 ``` bash
 SELECT name, description FROM books;
 ```
 Output:
-``` bash
-+----------------------------+------------------------------------------------------+
+
 | name | description |
-+----------------------------+------------------------------------------------------+
+|----|----------|
 | Android Security Internals | An In-Depth Guide to Android's Security Architecture |
-+----------------------------+------------------------------------------------------+
-```
+
+
 
 
 ## 3. UPDATE → (UPDATE)
@@ -536,7 +537,7 @@ HAVING name LIKE '%Hack%';
 - **ORDER BY** → sort results (ASC/DESC)  
 - **HAVING** → filter after GROUP BY  
 ---
-# 📘 SQL Operators Notes (Easy Explanation)
+# 📘 SQL Operators Notes
 
 ## 1. LIKE Operator
 - `LIKE` ka use tab hota hai jab hume kisi column ke andar **pattern ya word search** karna ho.  
@@ -680,7 +681,7 @@ WHERE published_date >= "2021-11-02";
 
 👉 Ye query un books ko dikhayegi jo **2 Nov 2021 ke baad ya us din publish** hui hain.  
 ---
-# 📘 SQL Functions Notes (Easy Explanation)
+# 📘 SQL Functions Notes 
 
 Functions help us to **manipulate data** aur queries ko **simplify** karte hain. Ye mainly do types ke hain:  
 - **String Functions** → strings pe kaam karte hain (text manipulation).  
