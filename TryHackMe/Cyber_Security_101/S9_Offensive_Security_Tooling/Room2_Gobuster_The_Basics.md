@@ -1,4 +1,4 @@
-# Gobuster Room Notes (Simple English)
+# Gobuster  
 
 ## 1. What is Gobuster?
 
@@ -534,7 +534,7 @@ Breakdown of Host header:
 
 
 ### Example Output
-
+```
 root@tryhackme:~# gobuster vhost -u "http://10.201.0.79" --domain example.thm -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt --append-domain --exclude-length 250-320
 ===============================================================
 Gobuster v3.6
@@ -561,7 +561,7 @@ Progress: 4989 / 4990 (99.98%)
 Finished
 ===============================================================
 
-
+```
 
 ## 4. Summary
 
