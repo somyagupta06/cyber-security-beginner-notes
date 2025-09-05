@@ -2,8 +2,8 @@
 
 ## 📂 Command(s) used:
 👉 
-- mkdir /tmp/bandit27repo
-- cd /tmp/bandit27repo
+- mkdir /tmp/bandit29repo
+- cd /tmp/bandit29repo
 - git clone "ssh://bandit29-git@localhost:2220/home/bandit29-git/repo"
 - cd repo
 - ls -la
@@ -53,10 +53,10 @@ git tag
 git show <tagname>
 ```
 ## 📖 Detailed Explanation
-1. Git Repository
+### 1. Git Repository
 - The directory given contains a hidden .git folder.
 - That means it is a Git repository, and we can use git commands to explore its history.
-## 2. Commit History (git log)
+### 2. Commit History (git log)
 - Each time a developer saves changes, a commit is created.
 - git log shows:
   - Commit ID
@@ -66,7 +66,7 @@ git show <tagname>
 - Using git show <commit-id>:README.md, we can see how the file looked at that point in history.
 
 👉 In this level, commit history only showed username changes and the password placeholder <no passwords in production!>.
-3. Branches
+### 3. Branches
 - A branch is like a separate line of development.
 - Developers use branches to test features without affecting the main code.
 - The command git branch -r lists remote branches from the original repository.
@@ -77,14 +77,14 @@ origin/dev
 origin/sploits-dev
 ```
 👉 The trick in this level is that the password is not in master branch commits, but in another branch (dev or sploits-dev).
-4. Checking Branches
+### 4. Checking Branches
 - With git checkout origin/<branchname>, you move to that branch.
 - Then you check README.md:
 ```
 cat README.md
 ```
 - In one of these hidden branches, the actual password for bandit30 is revealed.
-5. Tags
+### 5. Tags
 - A tag is like a bookmark for a specific commit, often used for marking versions (e.g., v1.0, release-2025).
 - Tags can also hide secrets.
 - Command git fetch --tags && git tag lists them.
