@@ -1,4 +1,4 @@
-# 🔐 Bandit Level: Bandit30 ➝ Bandit31
+# 🔐 Bandit Level: Bandit31 ➝ Bandit32
 
 ## 📂 Command(s) used:
 👉 
