@@ -113,7 +113,7 @@ Think of a **hospital** 🏥:
 
 
 
-## 🔹 Log Analysis (Basic Idea)
+## 🔹 Log Analysis 
 Logs alone = raw data 📑  
 To find value → we need **Log Analysis**.
 
