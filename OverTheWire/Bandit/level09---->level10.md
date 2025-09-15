@@ -12,7 +12,7 @@ Or
 ## 🧠 Notes / What I learned:
 👉  
 
-##** STRINGS **
+##  STRINGS 
 
 
 Strings is a simple but powerful Linux command that extracts readable text (ASCII characters) from inside a binary or non-text file.
