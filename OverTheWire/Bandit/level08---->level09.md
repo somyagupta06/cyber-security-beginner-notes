@@ -21,8 +21,8 @@ But when we use -u flag than it will print only the first occurance not tha dupl
 Normally, when we run a command, the output appears on the screen.
 
 But sometimes, we want to save that output into a file.
-- > → Saves the output into a file. If the file already exists, the old data is deleted and replaced with the new output.
-- >> → Appends the output at the end of the file. The old data is not deleted.
+- ` > `→ Saves the output into a file. If the file already exists, the old data is deleted and replaced with the new output.
+- `>> `→ Appends the output at the end of the file. The old data is not deleted.
 **📌 Example:**
 ```
 ls > myoutput
