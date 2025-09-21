@@ -1,4 +1,4 @@
-# 🔐 Bandit Level: Bandit13 ➝ Bandit14
+# 🔐 Bandit Level: Bandit16 ➝ Bandit17
 ## 📂 Command(s) used:
 👉 
 - nmap -p 30000-32000 127.0.0.1
