@@ -8,7 +8,8 @@
 👉 cGWpMaKXVwDUNgPAVJbWYuGHVn9zl3j8
 
 ## 🧠 Notes / What I learned:
-👉  ## Command Used (Explain)
+👉  
+## Command Used (Explain)
 - **ssh bandit18@bandit.labs.overthewire.org -p 2220 "cat readme"**
 - 
 **Other Commands**
