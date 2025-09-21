@@ -1,7 +1,7 @@
 # 🔐 Bandit Level: Bandit5 ➝ Bandit6
 ## 📂 Command(s) used:
-👉 find inhere/ -type f -size 1033c ! -executable -readable
-   cat inhere/maybehere07/.file2
+👉 - find inhere/ -type f -size 1033c ! -executable -readable
+   - cat inhere/maybehere07/.file2
 
 ## 📄 Password found:
 👉 HWasnPhtq9AVKe0dmk45nxy20cvUa6EG
