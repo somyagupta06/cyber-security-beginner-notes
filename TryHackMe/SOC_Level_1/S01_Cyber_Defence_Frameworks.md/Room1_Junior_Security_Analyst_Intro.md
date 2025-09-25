@@ -86,3 +86,127 @@ SOC = 24/7 monitoring, investigation, prevention, & response hub.
 - Career growth path → **Tier 1 → Tier 2 → Tier 3 → Senior roles**.
 
 ---
+# 🛡️ Security Operations Center (SOC) Overview
+
+---
+
+## 1. SOC Definition
+- Centralized 24/7 function in an organization.
+- Uses **people, processes, technology** to:
+  - Monitor
+  - Detect
+  - Analyze
+  - Respond to cybersecurity incidents
+- Acts as **central hub** for IT telemetry (networks, devices, appliances, info stores).
+- Correlates every logged event → decide how to act.
+
+---
+
+## 2. SOC Roles & Structure
+- **SOC Manager** → Leads SOC.
+- **Staff**:
+  - SOC Analysts (Tier 1, 2, 3)
+  - Threat Hunters
+  - Incident Responders
+  - Incident Response Managers
+- Reports to **CISO → CIO/CEO**
+- Architecture: **Hub-and-spoke**
+  - Spokes: Vulnerability scanners, GRC systems, IPS, UEBA, EDR, TIP
+
+---
+
+## 3. Key Responsibilities of SOC
+
+### 1️⃣ Take Stock of Resources
+- Assets: Devices, processes, applications to protect.
+- Defensive tools: SIEM, EDR, SOAR, firewalls, etc.
+- Gain full visibility → reduce blind spots.
+
+### 2️⃣ Preparation & Preventative Maintenance
+- **Preparation**: Stay updated on threats, trends, innovations.
+- **Preventative Maintenance**:
+  - Maintain/update systems
+  - Update firewall policies
+  - Patch vulnerabilities
+  - Allowlist/blocklist apps, IPs, emails
+
+### 3️⃣ Continuous Proactive Monitoring
+- Tools scan network 24/7 → flag anomalies.
+- Tools: SIEM, EDR, SOAR
+- Advanced: Behavioral analysis → reduces manual triage
+
+### 4️⃣ Alert Ranking & Management
+- Review alerts → discard false positives
+- Prioritize based on severity (Critical → Low)
+- Triage emerging threats
+
+### 5️⃣ Threat Response
+- Isolate endpoints
+- Terminate malicious processes
+- Delete malicious files
+- Minimize business impact
+
+### 6️⃣ Recovery & Remediation
+- Restore systems & recover data
+- Reconfigure systems / deploy backups
+- Return network to pre-incident state
+
+### 7️⃣ Log Management
+- Collect, maintain, review logs
+- Use logs for:
+  - Baseline activity
+  - Threat detection
+  - Forensics & remediation
+
+### 8️⃣ Root Cause Investigation
+- Investigate **what, how, when, why** incidents occurred
+- Use logs & data to prevent recurrence
+
+### 9️⃣ Security Refinement & Improvement
+- Continuous improvement against evolving threats
+- Execute security roadmap
+- Conduct red-team / purple-team exercises
+
+### 🔟 Compliance Management
+- Ensure compliance with:
+  - GDPR, HIPAA, PCI DSS
+- Regular audits → reduce legal/reputational risk
+
+---
+
+## 4. Optimizing SOC Operations
+- Bridge **operational + data silos** → improve efficiency
+- **Integration, automation, orchestration** reduce labor hours
+- Use centralized dashboards → integrate threat intelligence
+- Support **continuous visibility** & actionable intelligence
+
+---
+
+## 5. Best Practices for SOC Threat Management
+
+### 5.1 Conduct Threat Management Assessment
+- Evaluate:
+  - Strengths & gaps
+  - Risk posture
+  - Data collection & usage
+
+### 5.2 Create Threat Management Response Plan
+- Core steps:
+  - **Discovery** → baseline calculation, normalization, correlation
+  - **Triage** → prioritize based on risk & asset value
+  - **Analysis** → contextualize alerts
+  - **Scoping** → iterative investigation
+- Feed cases into incident response process
+
+### 5.3 Determine Right Data
+- Valuable data sources:
+  - Event data from countermeasures / IT assets
+  - IoCs from internal malware analysis
+  - IoCs from external threat feeds
+  - Host/network/database sensor data
+- Ensures actionable & timely response
+
+### 5.4 Review Threat Management Effectiveness
+- Benchmark SOC performance
+- Use consultants / penetration tests
+- Compare against peers → optimize resource allocation
