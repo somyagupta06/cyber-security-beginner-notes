@@ -14,3 +14,46 @@
 ### 📄 Password found:
 👉
 TguMNxKo1DSa1tujBLuZJnDUlCcUAPlI 
+
+### Notes
+
+# How to Check if Right-Click is Disabled
+
+## Method 1: Try Right-Clicking
+- Simply **right-click** anywhere on the page.
+- If nothing happens (no context menu), right-click might be disabled.
+
+---
+
+## Method 2: Check Event Listeners via Browser DevTools
+1. Open Developer Tools:  
+   - Chrome/Edge: `F12` or `Ctrl+Shift+I`  
+   - Firefox: `Ctrl+Shift+I`
+2. Go to the **Console** or **Elements** tab.
+3. Look for scripts that **listen for the `contextmenu` event**:
+   ```javascript
+   document.addEventListener('contextmenu', e => e.preventDefault())
+   ```
+If this exists, right-click is being blocked.
+## Method 3: Test Removing Event Listeners
+- Open Console in DevTools.
+- Run the following command to remove all contextmenu blockers:
+```
+document.oncontextmenu = null;
+```
+Or:
+```
+document.removeEventListener('contextmenu', function(){})
+```
+- Try right-clicking again.
+  - If it works now, the website was blocking right-click via JS.
+## Method 4: Check HTML Attributes
+- Some elements may have inline attributes like:
+<body oncontextmenu="return false;">
+- If present, this disables right-click on the page.
+## Summary
+- Disabled right-click is usually done via:
+- contextmenu event in JavaScript
+- oncontextmenu="return false" in HTML
+- You can inspect and override these using browser DevTools and the Console.
+
