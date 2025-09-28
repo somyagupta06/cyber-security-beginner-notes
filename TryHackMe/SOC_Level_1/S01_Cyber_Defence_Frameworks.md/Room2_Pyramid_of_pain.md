@@ -44,16 +44,16 @@ Get-FileHash .\OpenVPN_2.5.1_I601_amd64.msi -Algorithm MD5
 (You will see the MD5 value change after the echo step. That demonstrates how trivial changes break hash-based detection.)
 
 ## Comparison table — Ease for defender vs cost to attacker
-+----------------------+-----------------------------+------------------------------+
+
 | IOC type             | Easy for defender to use?   | Cost for attacker to change? |
-+----------------------+-----------------------------+------------------------------+
+|------|------|----|
 | Hash                 | Very easy                   | Very low                     |
 | IP address           | Easy                        | Low                          |
 | Domain/URL           | Easy–medium                 | Low–medium                   |
 | Network/Host artifact| Medium                      | Medium                       |
 | Tools (malware)      | Medium–hard                 | High                         |
 | TTPs                 | Hard                        | Very high                    |
-+----------------------+-----------------------------+------------------------------+
+
 
 ## How to use hashes effectively (practical tips)
 - Use hashes for quick lookup (VirusTotal, MetaDefender) and rapid triage.
@@ -133,11 +133,11 @@ Imagine:
 
 ## Comparison Table
 
-+------------------+----------------------------+---------------------------+
+
 | IOC Type         | Defender Effort            | Attacker Effort to Evade  |
-+------------------+----------------------------+---------------------------+
+|------------------|----------------------------|---------------------------|
 | IP Address       | Easy to detect & block     | Easy to change/rotate     |
-+------------------+----------------------------+---------------------------+
+
 
 ## TL;DR
 - IP addresses are a **green-level IOC** in the Pyramid of Pain.
@@ -209,13 +209,13 @@ Imagine:
 
 ## Comparison table
 
-+------------------+----------------------------+---------------------------+
+
 | IOC Type         | Defender Effort            | Attacker Effort to Evade  |
-+------------------+----------------------------+---------------------------+
+|------------------|----------------------------|---------------------------|
 | Hash             | Very easy                  | Very low                  |
 | IP address       | Easy                       | Low                       |
 | Domain name      | Medium                     | Medium                    |
-+------------------+----------------------------+---------------------------+
+
 
 ## TL;DR
 - Domain names are **teal-level IOCs** in the Pyramid of Pain.
