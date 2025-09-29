@@ -21,9 +21,9 @@ include "includes/secret.inc";
 bmg8SvU1LizuWjx3y7xkNERkHxGre0GS
 
 ### NOTES
-# PHP form + secret — super simple notes
+# PHP form + secret 
 
-Below are very easy English notes in desi style. This is ready to paste into a GitHub markdown file. Code blocks use triple-backticks (```) so you can copy raw code easily.
+
 
 ---
 
@@ -183,10 +183,3 @@ Why this is better:
 
 ---
 
-If you want, I can now:
-
-* convert this to a single downloadable .md file, or
-* make extra practice exercises for your local lab, or
-* create a version with more examples and screenshots.
-
-Bolo kya chahiye next.
