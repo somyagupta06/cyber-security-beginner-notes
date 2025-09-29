@@ -1,4 +1,4 @@
-# Cyber Kill Chain – Ultra Easy English 
+# Cyber Kill Chain 
 
 Think of an attacker like a thief planning to steal from your house.  
 He has to do many steps.  
@@ -68,10 +68,11 @@ Same for hackers online.
 
 
 
-## Bottom Line  
-Hacker has to pass all 7 steps to succeed.  
-If you block even **one step**, the attack fails.  
-This is why learning Cyber Kill Chain is powerful for defenders.
+## Bottom Line 
+
+- Hacker has to pass all 7 steps to succeed.  
+- If you block even **one step**, the attack fails.  
+- This is why learning Cyber Kill Chain is powerful for defenders.
 ---
 
 # Reconnaissance 
@@ -163,7 +164,7 @@ Reconnaissance = attacker’s homework.
 If you keep public information clean and careful, the attacker will find it hard to plan the attack.  
 Stop their homework = stop their attack.
 ---
-# Weaponization — Easy English (Desi Style)
+# Weaponization 
 
 After recon, attacker Megatron will make or buy a **weapon** to attack you.  
 Weaponization = jab attacker **malware + exploit** ko combine karke ek deliverable payload banata hai.  
