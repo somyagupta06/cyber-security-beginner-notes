@@ -1,4 +1,4 @@
-# UKC (Unified Kill Chain) — Simple Easy English  
+# UKC (Unified Kill Chain)  
 
 ## What is a Kill Chain?
 - **Kill Chain** = the attacker’s step-by-step plan.  
@@ -14,7 +14,7 @@
 
 ---
 
-## UKC Phases (Easy Version)
+## UKC Phases 
 1. **Reconnaissance (Checking target)**  
    - Attacker collects info about the target.  
    - Example: website details, employee emails, open ports.
@@ -50,7 +50,7 @@
 
 ---
 
-## Threat Modelling — Super Simple
+## Threat Modelling 
 Threat modelling = looking at your system and planning:
 1. **What is important? (Assets)**  
    - Example: customer database, payment system, internal emails.
@@ -65,7 +65,7 @@ Threat modelling = looking at your system and planning:
 
 ---
 
-## STRIDE, DREAD, CVSS — Quick Intro
+## STRIDE, DREAD, CVSS 
 - **STRIDE** — categories of threats (good for design):
   - S = Spoofing (fake identity)
   - T = Tampering (change data)
@@ -104,7 +104,7 @@ Threat modelling = looking at your system and planning:
 
 ---
 
-## Example Commands (just plain text)
+## Example Commands
 nmap -sV target.com  
 whois target.com  
 curl http://target.com/robots.txt  
@@ -112,94 +112,92 @@ ssh user@target.com
 
 ---
 
-## Quick Threat Modelling Checklist (5 minutes)
+## Quick Threat Modelling Checklist 
 1. List top 5 assets.  
 2. For each, list 3 weak points.  
 3. For each weak point, write 1 fix.  
 4. Rank fixes (high/medium/low).  
 5. Schedule patching/training for high risk.
 
----
+## Final Note 
 
-## Final Note (very simple)
 UKC is just a map of how an attacker works.  
 When we know the map, we can set defence before attacks.  
----
-# Unified Kill Chain (UKC) — Simple Easy English (continued)
+
+# Unified Kill Chain (UKC) 
 
 > Source: Paul Pols, *The Unified Kill Chain* (white paper). :contentReference[oaicite:0]{index=0}
 
 ---
 
-## Quick intro (one line)
+## Quick intro 
 UKC says an attacker’s full attack can be split into **18 clear phases** — from first snooping (recon) to final goals (objectives). This makes defending easier because you can spot and stop stages. :contentReference[oaicite:1]{index=1}
 
 ---
 
-## The 18 UKC phases — very short easy meaning (one-liners)
+## The 18 UKC phases
 
-1. **Reconnaissance** — Attacker studies target (who, what, where). :contentReference[oaicite:2]{index=2}  
-2. **Resource Development** — Attacker prepares tools/infrastructure (servers, malware). :contentReference[oaicite:3]{index=3}  
-3. **Delivery** — Sending the weapon (phishing email, infected file, supply-chain). :contentReference[oaicite:4]{index=4}  
-4. **Social Engineering** — Tricking people to do something unsafe (click link, open file). :contentReference[oaicite:5]{index=5}  
-5. **Exploitation** — Using a bug or mistake to run attacker code. :contentReference[oaicite:6]{index=6}  
-6. **Persistence** — Making sure attacker can come back (backdoor, scheduled task). :contentReference[oaicite:7]{index=7}  
-7. **Defense Evasion** — Hiding from detection (disable logs, obfuscate malware). :contentReference[oaicite:8]{index=8}  
-8. **Command & Control (C2)** — Attacker talks to the compromised system remotely. :contentReference[oaicite:9]{index=9}  
-9. **Pivoting** — Use one hacked machine to reach others (tunnel/forward traffic). :contentReference[oaicite:10]{index=10}  
-10. **Discovery** — Attacker learns the network and finds valuable systems. :contentReference[oaicite:11]{index=11}  
-11. **Privilege Escalation** — Gaining higher rights (admin/root). :contentReference[oaicite:12]{index=12}  
-12. **Execution** — Running attacker controlled code on systems. :contentReference[oaicite:13]{index=13}  
-13. **Credential Access** — Stealing passwords, tokens, keys. :contentReference[oaicite:14]{index=14}  
-14. **Lateral Movement** — Moving sideways to other machines/accounts. :contentReference[oaicite:15]{index=15}  
-15. **Collection** — Gathering the data the attacker wants (files, DBs). :contentReference[oaicite:16]{index=16}  
-16. **Exfiltration** — Taking data out of the network (uploading out). :contentReference[oaicite:17]{index=17}  
-17. **Impact** — Damage to systems or data (encrypt, delete, corrupt). :contentReference[oaicite:18]{index=18}  
-18. **Objectives** — The attacker’s overall goal (money, espionage, disruption). :contentReference[oaicite:19]{index=19}
-
----
-
-## Why UKC is better / useful (short)
-- **More detail:** 18 phases cover more attacker actions than older models. :contentReference[oaicite:20]{index=20}  
-- **Whole attack view:** It covers activities outside and inside the network (not just initial break-in). :contentReference[oaicite:21]{index=21}  
-- **Iterative reality:** Attackers don’t always go straight; they repeat phases (exploit → recon → pivot, etc.). UKC models that loop. :contentReference[oaicite:22]{index=22}  
-- **Maps to defenses:** You can pick which phases happen most and build layered defence (assume-breach + defense-in-depth). :contentReference[oaicite:23]{index=23}
+1. **Reconnaissance** — Attacker studies target (who, what, where). 
+2. **Resource Development** — Attacker prepares tools/infrastructure (servers, malware). 
+3. **Delivery** — Sending the weapon (phishing email, infected file, supply-chain).  
+4. **Social Engineering** — Tricking people to do something unsafe (click link, open file). 
+5. **Exploitation** — Using a bug or mistake to run attacker code.
+6. **Persistence** — Making sure attacker can come back (backdoor, scheduled task).
+7. **Defense Evasion** — Hiding from detection (disable logs, obfuscate malware).
+8. **Command & Control (C2)** — Attacker talks to the compromised system remotely.
+9. **Pivoting** — Use one hacked machine to reach others (tunnel/forward traffic). 
+10. **Discovery** — Attacker learns the network and finds valuable systems. 
+11. **Privilege Escalation** — Gaining higher rights (admin/root). 
+12. **Execution** — Running attacker controlled code on systems.  
+13. **Credential Access** — Stealing passwords, tokens, keys.
+14. **Lateral Movement** — Moving sideways to other machines/accounts.  
+15. **Collection** — Gathering the data the attacker wants (files, DBs). 
+16. **Exfiltration** — Taking data out of the network (uploading out). 
+17. **Impact** — Damage to systems or data (encrypt, delete, corrupt). 
+18. **Objectives** — The attacker’s overall goal (money, espionage, disruption).
 
 ---
 
-## How UKC compares to Lockheed Martin / MITRE (simple table)
+## Why UKC is better / useful 
+- **More detail:** 18 phases cover more attacker actions than older models.   
+- **Whole attack view:** It covers activities outside and inside the network (not just initial break-in). 
+- **Iterative reality:** Attackers don’t always go straight; they repeat phases (exploit → recon → pivot, etc.). UKC models that loop.  
+- **Maps to defenses:** You can pick which phases happen most and build layered defence (assume-breach + defense-in-depth). 
+---
+
+## How UKC compares to Lockheed Martin / MITRE 
 
 | Thing | UKC | Lockheed Martin CKC / MITRE ATT&CK |
 |---|---:|---|
-| Number of main phases | 18 (detailed). :contentReference[oaicite:24]{index=24} | CKC: ~8 phases (linear); ATT&CK: tactics & techniques (time-agnostic). :contentReference[oaicite:25]{index=25} |
-| Scope | Full end-to-end, in and out of network. :contentReference[oaicite:26]{index=26} | CKC more perimeter/malware focused; ATT&CK lists techniques without strict order. :contentReference[oaicite:27]{index=27} |
-| Use case | Threat modelling, layered defence, mapping attacker journey. :contentReference[oaicite:28]{index=28} | CKC/ATT&CK good for detection rules, telemetry and technique mapping. :contentReference[oaicite:29]{index=29} |
+| Number of main phases | 18 (detailed). | CKC: ~8 phases (linear); ATT&CK: tactics & techniques (time-agnostic). |
+| Scope | Full end-to-end, in and out of network. | CKC more perimeter/malware focused; ATT&CK lists techniques without strict order.  |
+| Use case | Threat modelling, layered defence, mapping attacker journey.  | CKC/ATT&CK good for detection rules, telemetry and technique mapping. |
 
 ---
 
-## Simple example to show looping (easy)
-1. Attacker **exploits** one server → installs backdoor (**persistence**). :contentReference[oaicite:30]{index=30}  
-2. From there attacker does **discovery** to find other machines. :contentReference[oaicite:31]{index=31}  
-3. They **pivot** to another host, find a new vulnerability, **exploit** again — so phases repeat. :contentReference[oaicite:32]{index=32}
+## Simple example to show looping 
+1. Attacker **exploits** one server → installs backdoor (**persistence**). 
+2. From there attacker does **discovery** to find other machines.  
+3. They **pivot** to another host, find a new vulnerability, **exploit** again — so phases repeat. 
 
-This loop is why UKC models real attacks better than a strict left-to-right chain. :contentReference[oaicite:33]{index=33}
+This loop is why UKC models real attacks better than a strict left-to-right chain. 
 
 ---
 
-## Practical quick tips using UKC (one-liners)
-- Focus detection on **high-frequency phases** (discovery, lateral movement, credential access). :contentReference[oaicite:34]{index=34}  
-- Use UKC to **prioritize controls**: e.g., strong logging + EDR for discovery/execution, MFA + password hygiene for credential access. :contentReference[oaicite:35]{index=35}  
-- Map UKC phases to MITRE ATT&CK techniques when building detections — combine both for coverage. :contentReference[oaicite:36]{index=36}
+## Practical quick tips using UKC 
+- Focus detection on **high-frequency phases** (discovery, lateral movement, credential access).
+- Use UKC to **prioritize controls**: e.g., strong logging + EDR for discovery/execution, MFA + password hygiene for credential access. 
+- Map UKC phases to MITRE ATT&CK techniques when building detections — combine both for coverage.
 
 ---
 
 ## One-minute study plan (if you want to remember)
-1. Learn the 3 groups: **In (get in)**, **Through (move inside)**, **Out (take data / damage)**. :contentReference[oaicite:37]{index=37}  
-2. Memorize a few key UKC phases: Recon, Delivery, Exploit, Persistence, Discovery, Lateral, Exfil, Objectives. :contentReference[oaicite:38]{index=38}  
+1. Learn the 3 groups: **In (get in)**, **Through (move inside)**, **Out (take data / damage)**. 
+2. Memorize a few key UKC phases: Recon, Delivery, Exploit, Persistence, Discovery, Lateral, Exfil, Objectives. 
 3. Practice by mapping a real attack story (phishing → malware → DB steal) to the phases.
 
 ---
-# UKC — Easy English (continued): Getting a Foothold (simple)
+# UKC — Getting a Foothold 
 
 **Main idea:**  
 This group of phases is all about **how the attacker gets into a system** and stays there. They use many tricks — looking for weaknesses, tricking people, running code, making backdoors, hiding from defenses, and then using the infected machine to reach others.
@@ -207,7 +205,7 @@ This group of phases is all about **how the attacker gets into a system** and st
 ---
 <img width="700" height="463" alt="Screenshot 2025-09-29 at 2 10 03 PM" src="https://github.com/user-attachments/assets/69289f09-8475-4f25-82b0-7f3248cd286d" />
 
-## Short plain summaries + examples
+## summaries + examples
 
 ### Reconnaissance (MITRE TA0043)  
 **What:** Attacker collects info about the target.  
@@ -312,7 +310,7 @@ This group of phases is all about **how the attacker gets into a system** and st
 
 ---
 
-## Small example flow (one short story)
+## Small example flow 
 1. Attacker finds a public web app (Recon).  
 2. Builds a malicious file and C2 server (Weaponization).  
 3. Emails an employee a fake invoice (Social Engineering).  
@@ -324,7 +322,7 @@ This group of phases is all about **how the attacker gets into a system** and st
 
 ---
 
-## Small checklist for defenders (fast)
+## Small checklist for defenders
 - Lock public info and reduce exposed services.  
 - Patch fast and use WAF for web apps.  
 - Train users for phishing + enforce 2FA.  
@@ -334,7 +332,7 @@ This group of phases is all about **how the attacker gets into a system** and st
 
 ---
 
-# UKC — Inside the Network (very easy English)
+# UKC — Inside the Network 
 
 **Main idea:**  
 After the attacker gets a foothold, they try to **do more inside** — find important systems, get higher access, steal credentials, and move to other machines. This section is all about using one hacked machine as a base to attack the rest of the network.
@@ -342,7 +340,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Pivoting (MITRE TA0008) — simple
+## Pivoting (MITRE TA0008) 
 **What:** Use the first compromised machine as a bridge/tunnel to reach other internal systems.  
 **Why:** Many valuable systems are not open to the internet. The pivot lets attacker reach them.  
 **Examples:**  
@@ -353,7 +351,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Discovery (MITRE TA0007) — simple
+## Discovery (MITRE TA0007) 
 **What:** Learn everything about the network and system from inside.  
 **What they look for:** users, permissions, running apps, open shares, installed software, system configs.  
 **Examples:**  
@@ -365,7 +363,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Privilege Escalation (MITRE TA0004) — simple
+## Privilege Escalation (MITRE TA0004) 
 **What:** Move from low-rights to higher-rights (admin, root, SYSTEM).  
 **How:** Use bugs, misconfigured services, weak permissions, stolen tokens.  
 **Examples:**  
@@ -376,7 +374,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Execution (MITRE TA0002) — simple
+## Execution (MITRE TA0002) e
 **What:** Run attacker-controlled code on systems using the pivot host.  
 **Examples:**  
 - Run remote trojans or scripts.  
@@ -387,7 +385,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Credential Access (MITRE TA0006) — simple
+## Credential Access (MITRE TA0006) 
 **What:** Steal passwords, tokens, keys so attacker can log in like a legit user.  
 **Methods:** keyloggers, credential dumping, stealing password files, phishing internal users.  
 **Why:** Using valid credentials helps avoid detection (activity looks normal).  
@@ -396,7 +394,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Lateral Movement (MITRE TA0008) — simple
+## Lateral Movement (MITRE TA0008) 
 **What:** Move from one host to another using stolen creds or exploits.  
 **Goal:** Reach high-value systems (DB, file servers, domain controllers).  
 **Examples:**  
@@ -407,7 +405,7 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 
 ---
 
-## Small story flow (short)
+## Small story flow 
 1. Attacker uses web server as pivot (Pivoting).  
 2. Runs discovery to find internal DB (Discovery).  
 3. Finds a service with weak config and escalates to root (Privilege Escalation).  
@@ -428,10 +426,10 @@ After the attacker gets a foothold, they try to **do more inside** — find impo
 | Credential Access | MFA, limit credential storage, rotate admin passwords |
 | Lateral Movement | Disable unnecessary protocols (SMB/RDP), jump hosts, strong logging |
 
----
 
-## Quick plain commands examples (GitHub-friendly single lines)
-# (examples — need permission in real life)
+
+## Quick plain commands examples 
+ 
 netstat -ano  
 ipconfig /all  
 whoami /groups  
@@ -439,9 +437,9 @@ schtasks /query
 mimikatz # (tool used for credential dumping — only in labs)  
 rdesktop internal-db:3389  
 
----
 
-## Fast checklist for defenders (5 items)
+
+## Fast checklist for defenders 
 1. Segment network and use jump-hosts for admin access.  
 2. Enforce MFA and rotate admin creds often.  
 3. Patch OS and apps; remove local admin rights where not needed.  
@@ -449,14 +447,14 @@ rdesktop internal-db:3389
 5. Block or monitor lateral protocols (RDP, SMB) and alert on abnormal use.
 
 ---
-# UKC — Endgame: Collection, Exfiltration, Impact, Objectives (Very Easy English)
+# UKC — Endgame: Collection, Exfiltration, Impact, Objectives 
 
-## Main idea (one line)
+## Main idea 
 This phase is the **finish line** — attacker already inside, finds the valuable stuff, takes or breaks it, and completes their goal (money, damage, or fame).
 
 ---
 
-## Collection (MITRE TA0009) — simple
+## Collection (MITRE TA0009) 
 **What:** Attacker gathers the important data they want.  
 **Where they look:** Drives, databases, browser data, email, audio/video, shared folders.  
 **Why:** To prepare the stuff they will steal or use later.  
@@ -465,14 +463,14 @@ This phase is the **finish line** — attacker already inside, finds the valuabl
 
 ---
 
-## Exfiltration (MITRE TA0010) — simple
+## Exfiltration (MITRE TA0010) 
 **What:** Attacker sends the collected data out of the network.  
 **How:** They often compress and encrypt the files so security tools don’t notice, and use the C2 tunnel set up earlier.  
 **One-line:** Pack it, hide it, and send it out the back door.
 
 ---
 
-## Impact (MITRE TA0040) — simple
+## Impact (MITRE TA0040) 
 **What:** Attacker breaks or changes systems/data to cause damage.  
 **Examples:**  
 - Encrypt files (ransomware).  
@@ -484,7 +482,7 @@ This phase is the **finish line** — attacker already inside, finds the valuabl
 
 ---
 
-## Objectives — simple
+## Objectives
 **What:** The attacker’s big reason for the attack.  
 **Types of goals:**  
 - Financial (ransom, fraud).  
@@ -496,7 +494,7 @@ This phase is the **finish line** — attacker already inside, finds the valuabl
 
 ---
 
-## Short example story (easy)
+## Short example story 
 1. Attacker finds a database with customer records (Collection).  
 2. Compresses and encrypts the data and uploads it to their server via the C2 (Exfiltration).  
 3. Then runs ransomware to encrypt the rest of the files (Impact).  
@@ -504,7 +502,7 @@ This phase is the **finish line** — attacker already inside, finds the valuabl
 
 ---
 
-## Quick defender ideas (small and practical)
+## Quick defender ideas 
 
 | Phase | Easy Defences |
 |---|---|
@@ -525,15 +523,20 @@ This phase is the **finish line** — attacker already inside, finds the valuabl
 ---
 
 ## Small commands / checks (plain lines — GitHub friendly)
-# check recent big file transfers in webserver logs
-grep -i "POST" /var/log/apache2/access.log | awk '{print $1, $7, $9, $10}'  
-# list large files in shared folders
-find /shared -type f -size +100M -ls  
-# check outbound connections
+- check recent big file transfers in webserver logs
+```
+grep -i "POST" /var/log/apache2/access.log | awk '{print $1, $7, $9, $10}'
+```
+- list large files in shared folders
+```
+find /shared -type f -size +100M -ls
+```
+- check outbound connections
+```
 netstat -tupan | grep ESTABLISHED
-
+```
 ---
 
-## Final tiny note (very easy)
+## Final tiny note 
 This last phase is where attackers get their reward or cause real damage. Focus on **detecting big reads, stopping secret data leaving, and having good backups** — that reduces the hit a lot.
 
