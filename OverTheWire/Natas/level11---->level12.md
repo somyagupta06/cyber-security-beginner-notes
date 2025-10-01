@@ -13,9 +13,12 @@
 ```
 - inspect to element tab
 - inside the value change it to t.php
+
 <img width="1469" height="872" alt="Screenshot 2025-10-01 at 12 30 03 PM" src="https://github.com/user-attachments/assets/2c54174a-856a-4c01-965e-6042515601c1" />
+
 - then upload t.php
 <img width="1467" height="875" alt="Screenshot 2025-10-01 at 12 30 44 PM" src="https://github.com/user-attachments/assets/9080169f-81b0-41fa-9f08-c3c7576a5fbe" />
+
 - click on random url and get the password
 <img width="1469" height="872" alt="Screenshot 2025-10-01 at 12 31 11 PM" src="https://github.com/user-attachments/assets/84f3c900-7e2c-401b-84ca-278bb34034de" />
 
