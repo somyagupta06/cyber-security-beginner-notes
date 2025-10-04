@@ -1,4 +1,4 @@
-# Cyber Threat Intelligence (CTI) for SOC L1 Analysts – Super Simple Notes 📝
+# Cyber Threat Intelligence (CTI) for SOC L1 Analysts 📝
 
 Imagine you’re the guard at the entrance of a huge colony. Many people come and go every minute. Some are guests, some are delivery boys, and some may be thieves.  
 Your job: figure out quickly who’s safe and who’s dangerous. That’s what an L1 SOC Analyst does, but with computer alerts.
