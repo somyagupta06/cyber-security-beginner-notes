@@ -105,6 +105,170 @@ Threat Intelligence = Knowing attackers & their tricks.
 It’s divided into Strategic, Technical, Tactical & Operational.
 Tools like Urlscan.io and Abuse.ch platforms help security teams collect and use this info to protect organisations.
 ---
+# Email Phishing – Very Simple Notes
+
+## 1. What is Email Phishing?
+- It is a type of online cheating.
+- Hackers send **fake emails** that look real (like from bank, school, company).
+- If you click the link or open the file, the hacker can:
+  - Put a virus in your computer.
+  - Steal your password and private data.
+  - Take your money or lock your files.
+
+**Example:**  
+You get an email saying “Your bank account is locked, click here to unlock.”  
+You click → your password goes to the hacker.
+
+---
+
+## 2. Where to Learn?
+TryHackMe has small rooms to teach phishing:
+- Phishing Emails 1  
+- Phishing Emails 2  
+- Phishing Emails 3  
+- Phishing Emails 4  
+- Phishing Emails 5  
+
+---
+
+## 3. What is PhishTool?
+- A website/tool to **check emails**.
+- You upload the email; it tells you if it’s good or bad.
+- Two types:
+  - Community (free, basic)
+  - Enterprise (paid, more features)
+
+We will use the **Community version**.
+
+---
+
+## 4. Main Things PhishTool Does
+
+### (a) Email Check
+- Shows:
+  - Who sent the email.
+  - What files are attached.
+  - What links are inside.
+  - Hidden info about the email.
+
+### (b) Extra Intelligence
+- Uses internet info to tell how the hacker fooled people.
+
+### (c) Make a Report
+- You can mark the email “Safe” or “Phishing”.
+- You can create a small report as proof.
+
+---
+
+## 5. Extra Features in Paid Version
+- Manage emails reported by users.
+- Send reports back to the users.
+- Works directly with Microsoft 365 and Google Workspace.
+
+---
+
+## 6. Tabs Inside PhishTool
+
+### Analysis Tab  
+Main place to upload and check your email.  
+It has small sections:
+
+- **Headers:** Who sent the email, which IP address, when.
+- **Received Lines:** How the email travelled across servers.
+- **X-headers:** Extra info added by the email system.
+- **Security:** Shows SPF, DKIM, DMARC (checks to see if email is fake).
+- **Attachments:** Shows all files attached.
+- **Message URLs:** Shows all the links inside the email.
+
+On the right side:
+- **Plaintext:** The normal text of the email.
+- **Source:** The hidden code of the email.
+
+---
+
+## 7. Resolve Button
+- After checking the email, you click **Resolve**.
+- You mark it “Safe” or “Bad”.
+- You can also mark dangerous links or files.
+- All this shows in the **Resolution tab**.
+
+---
+
+## 8. Quick Summary
+- Hacker sends fake email → You click → Hacker steals data.
+- PhishTool is like a magnifying glass for emails.
+- It helps you see if the email is safe or bad.
+- You can also make a report for training or evidence.
+
+---
+# Cisco Talos – Simple Notes
+
+## 1. What is Cisco Talos?
+- Cisco (a big IT & Cybersecurity company) collects a lot of data from its products.
+- They use this data to find and stop new cyber threats.
+- The team that does this is called **Cisco Talos**.
+- Talos gives “actionable intelligence” (useful info) to protect against hackers.
+
+---
+
+## 2. Talos has 6 main teams
+
+| Team Name | What They Do (Simple) |
+|-----------|-----------------------|
+| Threat Intelligence & Interdiction | Takes small threat clues (IOCs) and makes full intel out of them. Tracks threats quickly. |
+| Detection Research | Studies malware & vulnerabilities to make detection rules. |
+| Engineering & Development | Keeps the security engines updated so they can catch new threats. |
+| Vulnerability Research & Discovery | Finds and reports new security holes to vendors (companies). |
+| Communities | Maintains Talos’ public image and open-source tools. |
+| Global Outreach | Shares Talos’ findings with customers & the security community (through reports/publications). |
+
+---
+
+## 3. Talos Dashboard
+- When you open Talos Intelligence online, you see a **world map**.
+- It shows email traffic around the world:
+  - Legitimate (good emails)
+  - Spam
+  - Malware
+- You can click on a marker on the map to see:
+  - IP address & hostname info
+  - How many emails were sent that day
+  - What type they were (spam, malware, etc.)
+
+---
+
+## 4. Talos Dashboard Tabs (Important for Analysts)
+
+### (a) Vulnerability Information  
+- Shows all reported security weaknesses (vulnerabilities).
+- Includes CVE numbers (ID for vulnerabilities) and CVSS scores (severity rating).
+- Shows timeline (when report was made, when published).
+- Includes Microsoft advisories.
+- Gives **Snort rules** (rules used in firewalls/intrusion detection to block threats).
+
+### (b) Reputation Center  
+- Lets you search threat data about:
+  - IP addresses  
+  - File hashes (SHA256)  
+- Helps analysts investigate if an IP or file is malicious.
+- Has extra email & spam data under a special tab.
+
+---
+
+## 5. Quick Summary
+- **Cisco Talos** = Big security team from Cisco to protect against threats.
+- They have **6 teams** doing different jobs like finding malware, updating systems, finding vulnerabilities, and sharing info.
+- **Dashboard** = Shows world email traffic (good vs bad).
+- **Vulnerability Information** tab = Shows security holes and Snort rules.
+- **Reputation Center** tab = Lets you check if IPs or files are bad.
+
+
+
+
+
+
+
+
 # Task: Analyse Email1.eml 
 
 ## Short idea 
