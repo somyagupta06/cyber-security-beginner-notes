@@ -27,7 +27,7 @@ YARA could search many files and say: "I found 'Hello World' inside this program
 
 ---
 
-## 4. Why malware uses strings (simple table)
+## 4. Why malware uses strings 
 
 | Malware Type | Example string found | What it means (easy) |
 |--------------|----------------------|----------------------|
@@ -45,15 +45,16 @@ YARA could search many files and say: "I found 'Hello World' inside this program
   - Strings to search
   - Conditions (when to say “match”)
 
-### Small YARA rule example (very simple)
+### Small YARA rule example
+```
 rule Hello_World_Rule {
   strings:
     $a = "Hello World"
   condition:
     $a
 }
-
-**Explain line by line (easy):**
+```
+**Explain line by line:**
 - `rule Hello_World_Rule` → this is the rule's name.
 - `strings:` → here we list text or byte patterns to search.
 - `$a = "Hello World"` → we call this pattern `$a` and it looks for the text Hello World.
@@ -62,7 +63,7 @@ rule Hello_World_Rule {
 
 ---
 
-## 6. How YARA helps in real life (simple)
+## 6. How YARA helps in real life 
 - If many files contain a known malware string, YARA can find all of them fast.
 - Security teams use YARA to **label files** (malicious / suspicious / safe).
 - Researchers share YARA rules so others can detect the same malware.
@@ -84,7 +85,7 @@ rule Hello_World_Rule {
 
 ---
 
-# Your First YARA Rule – Very Simple Notes
+# Your First YARA Rule 
 
 ## 1. What is a YARA Rule?
 - YARA uses its own small language to find patterns in files.
@@ -112,10 +113,11 @@ touch myfirstrule.yar
 nano myfirstrule.yar  
 
 Put this inside:
+```
 rule examplerule {
     condition: true
 }
-
+```
 - `examplerule` = name of the rule.
 - `condition: true` = always true (just a basic test rule).
 
@@ -149,21 +151,21 @@ Congrats 🎉 you made your first YARA rule.
 
 **Example:**  
 Look for “Hello World!” in any file:
-
+```
 rule helloworld_checker {
   strings:
     $hello_world = "Hello World!"
   condition:
     $hello_world
 }
-
+```
 This matches only if the file contains **exactly** “Hello World!”.
 
 ---
 
 ## 5. Searching Multiple Variants
 To match Hello World in different cases:
-
+```
 rule helloworld_checker {
   strings:
     $hello_world = "Hello World!"
@@ -172,7 +174,7 @@ rule helloworld_checker {
   condition:
     any of them
 }
-
+```
 Now it matches if file has any of these:
 - Hello World!
 - hello world
@@ -188,13 +190,14 @@ Now it matches if file has any of these:
 - `!=` not equal
 
 **Example:**
+```
 rule helloworld_checker {
   strings:
     $hello_world = "Hello World!"
   condition:
     #hello_world <= 10
 }
-
+```
 This will:
 1. Look for “Hello World!”
 2. Only match if it appears 10 times or less in the file.
@@ -205,14 +208,14 @@ This will:
 
 **Example:**
 Check file has “Hello World!” **and** is smaller than 10KB:
-
+```
 rule helloworld_checker {
   strings:
     $hello_world = "Hello World!"
   condition:
     $hello_world and filesize < 10KB
 }
-
+```
 - If file has Hello World! **and** is <10KB → match.
 - If either condition fails → no match.
 
@@ -258,7 +261,7 @@ A researcher called **fr0gger_** made a nice YARA cheatsheet showing all parts o
 
 ---
 
-# YARA & Related Tools - Simple Notes 🎒
+# YARA & Related Tools 🎒
 
 ## 1) Overview
 - **YARA**: A tool to detect suspicious files using patterns (like fingerprints).
@@ -494,3 +497,35 @@ python3 yarGen.py -m /home/cmnatic/suspicious-files/file2 --excludegood -o /home
 yara /path/to/file2.yar /var/www/html -r
 
 ---
+## Questions and its Solutions
+
+1. Scan file 2 Does Loki detect this file as suspicious/malicious or benign?
+   <img width="1133" height="364" alt="Screenshot 2025-10-06 at 11 51 24 AM" src="https://github.com/user-attachments/assets/dd692154-2dca-4caa-9bd3-b927b55938aa" />
+    
+2. Inspect file 2. What is the name and version of this web shell?
+<img width="1008" height="136" alt="Screenshot 2025-10-06 at 11 52 26 AM" src="https://github.com/user-attachments/assets/beecb913-080c-4820-86f5-1a0bfce91007" />
+<img width="1453" height="719" alt="Screenshot 2025-10-06 at 11 52 48 AM" src="https://github.com/user-attachments/assets/daeb3721-8092-4d14-b8c4-8ffb8f129af2" />
+
+3. From within the root of the suspicious files directory, what command would you run to test Yara and your Yara rule against file 2?
+<img width="973" height="618" alt="Screenshot 2025-10-06 at 11 54 36 AM" src="https://github.com/user-attachments/assets/bea4937d-eded-4a6c-b361-be3bad3cb24a" />
+<img width="1114" height="113" alt="Screenshot 2025-10-06 at 11 55 28 AM" src="https://github.com/user-attachments/assets/c4d73e37-c902-45a9-81c2-cfbad47f8dbc" />
+
+4. Copy the Yara rule you created into the Loki signatures directory.
+
+```
+cmnatic@thm-yara:~/suspicious-files$ cp file2.yar /home/cmnatic/tools/Loki/signature-base/yara/file2.yar
+```
+
+5. Test the Yara rule with Loki
+<img width="1206" height="442" alt="Screenshot 2025-10-06 at 11 57 45 AM" src="https://github.com/user-attachments/assets/c965afe2-5707-49d0-bfc9-baebb0fb83a1" />
+
+6. What is the name of the variable for the string that it matched on?
+<img width="1357" height="483" alt="Screenshot 2025-10-06 at 11 58 06 AM" src="https://github.com/user-attachments/assets/60100527-c227-4c8d-af26-382fad7bdee5" />
+
+7. Inspect the Yara rule, how many strings were generated?
+<img width="1266" height="627" alt="Screenshot 2025-10-06 at 11 58 59 AM" src="https://github.com/user-attachments/assets/cb5123e7-37f9-43b2-8439-1987045f8b7b" />
+
+8. sha256 hash of file
+  <img width="723" height="54" alt="Screenshot 2025-10-06 at 11 59 37 AM" src="https://github.com/user-attachments/assets/a5fbca25-459d-45e0-839b-518c7743f8e6" />
+
+
