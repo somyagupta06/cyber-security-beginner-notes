@@ -26,3 +26,31 @@
 ## Q6. What is the name of the S3 bucket that was made publicly accessible?
 - <img width="1470" height="956" alt="Screenshot 2026-02-10 at 6 49 40 PM" src="https://github.com/user-attachments/assets/af5cde89-2c42-43f3-808f-ff3977c2e483" />
 
+# Task - 4 Cryptomining Events
+
+## Q.1 A Frothly endpoint exhibits signs of coin mining activity. What is the name of the second process to reach 100 percent CPU processor utilization time from this activity on this endpoint? Answer guidance: Include any special characters/punctuation.
+
+- <img width="1470" height="956" alt="Screenshot 2026-02-12 at 8 01 06 PM" src="https://github.com/user-attachments/assets/6007aeac-12c7-49aa-aca0-5ff2112951e6" />
+- <img width="1470" height="956" alt="Screenshot 2026-02-12 at 8 01 27 PM" src="https://github.com/user-attachments/assets/b588c226-dd5f-47ac-9f9a-eb7cd4e11e4c" />
+
+
+## Q.2 What is the short hostname of the only Frothly endpoint to actually mine Monero cryptocurrency? (Example: ahamilton instead of ahamilton.mycompany.com)
+- <img width="1470" height="956" alt="Screenshot 2026-02-12 at 8 02 54 PM" src="https://github.com/user-attachments/assets/ccd71ebf-66f7-4458-805b-d3e00ddb69bc" />
+
+## Q.3 Using Splunk's event order functions, what is the first seen signature ID of the coin miner threat according to Frothly's Symantec Endpoint Protection (SEP) data?
+
+- we have got the source type to searched.
+- After searching the Query
+<img width="1470" height="956" alt="Screenshot 2026-02-12 at 7 51 35 PM" src="https://github.com/user-attachments/assets/ea46acfa-fcc5-4945-a129-ca999aaed7f0" />
+<img width="1470" height="956" alt="Screenshot 2026-02-12 at 7 52 53 PM" src="https://github.com/user-attachments/assets/9fe55c41-73dc-4a70-aa22-36f0918fd9e0" />
+
+## Q.4 What is the name of the attack?
+- <img width="1470" height="956" alt="Screenshot 2026-02-12 at 7 54 24 PM" src="https://github.com/user-attachments/assets/e3e06b84-af2f-47f6-b655-46334ed9326d" />
+
+## Q.5 According to Symantec's website, what is the severity of this specific coin miner threat?
+- medium
+
+## Q.6 What is the short hostname of the only Frothly endpoint to show evidence of defeating the cryptocurrency threat? (Example: ahamilton instead of ahamilton.mycompany.com)
+- <img width="1470" height="956" alt="Screenshot 2026-02-12 at 7 58 11 PM" src="https://github.com/user-attachments/assets/20d2870d-3ce0-4a9c-96e1-4c093e715f02" />
+
+
