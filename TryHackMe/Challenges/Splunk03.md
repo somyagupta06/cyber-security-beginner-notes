@@ -1,4 +1,4 @@
-# Splunk 3
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 8 53 35 PM" src="https://github.com/user-attachments/assets/ad3b6cb6-2a3c-4f3b-8323-d8285c6f9f1f" /># Splunk 3
 ## Q1. List out the IAM users that accessed an AWS service (successfully or unsuccessfully) in Frothly's AWS environment? Answer guidance: Comma separated without spaces, in alphabetical order. (Example: ajackson,mjones,tmiller)
 
 - As from the guide we get to know the all the events in AWS are managed by cloudtrail so users that accessed AWS service also managed by sourcetype =  aws:cloudtrail.
@@ -53,4 +53,30 @@
 ## Q.6 What is the short hostname of the only Frothly endpoint to show evidence of defeating the cryptocurrency threat? (Example: ahamilton instead of ahamilton.mycompany.com)
 - <img width="1470" height="956" alt="Screenshot 2026-02-12 at 7 58 11 PM" src="https://github.com/user-attachments/assets/20d2870d-3ce0-4a9c-96e1-4c093e715f02" />
 
+# More AWS events
 
+## Q.1 What IAM user access key generates the most distinct errors when attempting to access IAM resources?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 8 39 05 PM" src="https://github.com/user-attachments/assets/59ab3fb4-aa4d-4c49-9dd9-112ba7416368" />
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 8 40 10 PM" src="https://github.com/user-attachments/assets/c9b0cffe-a0ed-441c-a6c0-11aa57b85a9c" />
+
+## Q.2 Bud accidentally commits AWS access keys to an external code repository. Shortly after, he receives a notification from AWS that the account had been compromised. What is the support case ID that Amazon opens on his behalf?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 8 53 50 PM" src="https://github.com/user-attachments/assets/7fe681a7-4372-48d2-a9b8-9b5987d3a638" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 8 53 17 PM" src="https://github.com/user-attachments/assets/4d020460-2f53-41ff-a649-6215bb1689c7" />
+
+## Q.3 AWS access keys consist of two parts: an access key ID (e.g., AKIAIOSFODNN7EXAMPLE) and a secret access key (e.g., wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY). What is the secret access key of the key that was leaked to the external code repository?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 9 23 35 PM" src="https://github.com/user-attachments/assets/ee199920-d7cc-41ef-a3a4-26dff0c7cd01" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 9 18 52 PM" src="https://github.com/user-attachments/assets/286cb34c-a1ba-4bf6-8793-375626259a03" />
+
+## Q.4 Using the leaked key, the adversary makes an unauthorized attempt to create a key for a specific resource. What is the name of that resource? Answer guidance: One word.
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 9 27 58 PM" src="https://github.com/user-attachments/assets/c9327aec-633c-4788-9e91-73ca353962c6" />
+
+## Q.5 Using the leaked key, the adversary makes an unauthorized attempt to describe an account. What is the full user agent string of the application that originated the request?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 9 33 16 PM" src="https://github.com/user-attachments/assets/2203f634-e753-4afb-bc6a-3a6b0c12919e" />
+<img width="1470" height="956" alt="Screenshot 2026-02-14 at 9 33 37 PM" src="https://github.com/user-attachments/assets/5c7a1694-f4e6-4d32-8568-14b7137309d5" />
