@@ -134,4 +134,38 @@ index=botsv3 sourcetype=ms:o365:management Workload=OneDrive Operation=FileUploa
 ## Q.8 What is the MD5 value of the file downloaded to Fyodor's endpoint system and used to scan Frothly's network?
 
 
+# More Endpoint Events
+
+## Q.1 What port number did the adversary use to download their attack tools?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 9 40 45 PM" src="https://github.com/user-attachments/assets/89af53d9-feaf-48fd-9285-e18869a56ea0" />
+
+## Q.2 Based on the information gathered for question 1, what file can be inferred to contain the attack tools? Answer guidance: Include the file extension.
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 9 44 33 PM" src="https://github.com/user-attachments/assets/02437a66-74cd-4e63-b8f6-3bcd41f5e463" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 9 44 57 PM" src="https://github.com/user-attachments/assets/322c22db-f3a1-4766-956a-0535d59d0375" />
+
+## Q.3 During the attack, two files are remotely streamed to the /tmp directory of the on-premises Linux server by the adversary. What are the names of these files? Answer guidance: Comma separated without spaces, in alphabetical order, include the file extension where applicable.
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 01 57 PM" src="https://github.com/user-attachments/assets/0e83b226-9255-474d-916c-a74d0ac6a43c" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 01 11 PM" src="https://github.com/user-attachments/assets/1953b8d2-3b38-4398-8c96-bdbaeca35249" />
+
+## Q.4 The Taedonggang adversary sent Grace Hoppy an email bragging about the successful exfiltration of customer data. How many Frothly customer emails were exposed or revealed?
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 11 28 PM" src="https://github.com/user-attachments/assets/bf836365-ac41-40eb-9b51-22cf3a378d67" />
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 12 15 PM" src="https://github.com/user-attachments/assets/9e835cbf-ad68-4023-84ba-525b64f5199f" />
+
+## Q.5 What is the path of the URL being accessed by the command and control server? Answer guidance: Provide the full path. (Example: The full path for the URL https://imgur.com/a/mAqgt4S/lasd3.jpg is /a/mAqgt4S/lasd3.jpg)
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 43 57 PM" src="https://github.com/user-attachments/assets/99c3f6dc-9a9b-493a-aff9-82465f83da12" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 44 33 PM" src="https://github.com/user-attachments/assets/4ad476db-64a5-402f-b8cd-5a0ad4c48aae" />
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 44 57 PM" src="https://github.com/user-attachments/assets/a5cf843a-fbe4-492a-be30-fcd129a0b80d" />
+
+## Q.6 At least two Frothly endpoints contact the adversary’s command and control infrastructure. What are their short hostnames? Answer guidance: Comma separated without spaces, in alphabetical order.
+
+<img width="1470" height="956" alt="Screenshot 2026-02-18 at 10 46 08 PM" src="https://github.com/user-attachments/assets/7f0331b1-7deb-4b52-acba-31c407fe300f" />
 
