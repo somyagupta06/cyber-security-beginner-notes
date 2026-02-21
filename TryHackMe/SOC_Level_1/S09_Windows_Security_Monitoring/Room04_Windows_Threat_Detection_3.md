@@ -27,8 +27,11 @@ C2 is like a secret phone between attacker and victim computer.
 How it works:
 
 Step 1: Attacker sends phishing file.
+
 Step 2: User opens it.
+
 Step 3: Malware connects back to attacker.
+
 Step 4: Attacker controls system secretly.
 
 Important:
@@ -54,6 +57,7 @@ Event ID 3  = Network Connection
 Event ID 11 = File Created  
 Event ID 13 = Registry Changed  
 Event ID 10 = Process tried to access another process  
+Event ID 22 = DNS query 
 
 --------------------------------------------
 
@@ -85,7 +89,9 @@ C:\Program Files
 Malware hides in:
 
 C:\Users\Username\AppData\Local
+
 C:\Users\Username\AppData\Roaming
+
 C:\Users\Username\AppData\Temp
 
 Because normal users do not check there.
