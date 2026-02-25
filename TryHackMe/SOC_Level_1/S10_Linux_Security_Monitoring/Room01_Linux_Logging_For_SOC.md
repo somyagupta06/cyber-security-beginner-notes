@@ -1,4 +1,4 @@
-<img width="1470" height="956" alt="Screenshot 2026-02-22 at 8 41 28 AM" src="https://github.com/user-attachments/assets/012251c3-ed3c-4a47-9e5a-6352b13b7be5" /># Linux Logging Basics (SOC Analyst Notes)
+# Linux Logging Basics (SOC Analyst Notes)
 
 ## 1. What is Logging?
 
