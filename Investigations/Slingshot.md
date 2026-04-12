@@ -1,8 +1,8 @@
-# 🔍 Slingway Inc. Web Server Investigation (Elastic Stack)
+#  Slingway Inc. Web Server Investigation (Elastic Stack)
 
 ---
 
-## 📌 Context
+##  Context
 
 Slingway Inc., a toy company, detected suspicious activity on its e-commerce web server along with possible unauthorized database changes.
 
@@ -18,7 +18,7 @@ So the investigation had to be built step-by-step from logs only.
 
 ---
 
-## 🎯 Objective
+## Objective
 
 The goal of this investigation was to:
 
@@ -29,7 +29,7 @@ The goal of this investigation was to:
 
 ---
 
-## 🧠 Investigation Approach
+##  Investigation Approach
 
 When I opened the logs in Elastic, there were too many logs and too many fields. It was overwhelming and I did not understand where to start.
 
@@ -43,11 +43,11 @@ I avoided guessing and focused on **what the logs are actually showing**.
 
 ---
 
-## 🔎 Evidence-Based Investigation
+##  Evidence-Based Investigation
 
 ---
 
-### 🟥 Stage 1: Identifying Initial Anomaly (404 Errors)
+###  Stage 1: Identifying Initial Anomaly (404 Errors)
 
 I started by checking the checking popular fields section and there I found the `response.code` field.
 
@@ -68,7 +68,7 @@ This is not normal user behavior.
 
 ---
 
-### 🔍 Key Observation
+### Key Observation
 
 I checked the `transaction.remote_address` field. 
 I did not fully understand what was this. So I searched and learned:
@@ -85,7 +85,7 @@ After checking it I found:
 
 ---
 
-### 🟥 Stage 2: Reconnaissance Activity (Nmap & Gobuster)
+###  Stage 2: Reconnaissance Activity (Nmap & Gobuster)
 
 I filtered logs using this attacker IP and started opening events.
 
@@ -93,7 +93,7 @@ Initially, I did not understand much, so I focused on recognizable patterns and 
 
 ---
 
-#### 🔹 Nmap Detection
+####  Nmap Detection
 
 In the first event I saw:
 
@@ -102,14 +102,14 @@ In the first event I saw:
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 9 30 25 AM" src="https://github.com/user-attachments/assets/5813ada8-380d-47c3-a2ad-cb50e4494f87" />
 
 Since I already knew:
-➡️ Nmap is used for scanning
+ Nmap is used for scanning
 
 I concluded:
-➡️ attacker is performing **reconnaissance (port scanning)**
+ attacker is performing **reconnaissance (port scanning)**
 
 ---
 
-#### 🔹 Gobuster Detection
+####  Gobuster Detection
 
 Then after a little scrolling, I found:
 
@@ -119,7 +119,7 @@ Then after a little scrolling, I found:
 
 I was not fully sure, so I searched:
 
-➡️ Gobuster is used for:
+ Gobuster is used for:
 
 * directory brute forcing
 * finding hidden endpoints
@@ -128,22 +128,21 @@ I was not fully sure, so I searched:
  
 ---
 
-### 🔍 Log Behavior
+###  Log Behavior
 
 I observed:
 
 * multiple `.php` files
 * multiple `.txt` files
 
-➡️ This confirmed:
-➡️ attacker is trying to discover hidden directories/files
+This confirmed: attacker is trying to discover hidden directories/files
 
 There when I search for flag in the search bar I got a flag directory with a THM Flag in it.
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 9 59 52 AM" src="https://github.com/user-attachments/assets/cd3f6e50-8638-482e-ac5c-4d76893f4a83" />
 
 ---
 
-### ⚠️ Mistake (Critical Learning)
+###  Mistake (Critical Learning)
 
 At this stage, I made two major mistakes:
 
@@ -160,7 +159,7 @@ At this stage, I made two major mistakes:
 
 ---
 
-### ✅ Fix
+###  Fix
 
 I corrected this by:
 
@@ -171,7 +170,7 @@ I corrected this by:
 
 ---
 
-### 🟥 Stage 3: Brute Force Activity (Hydra)
+### Stage 3: Brute Force Activity (Hydra)
 
 Next, I decided to check **User-Agent field**
 
@@ -183,7 +182,7 @@ I found:
 
 I searched it and learned:
 
-➡️ Hydra is used for brute force attacks (login cracking)
+ Hydra is used for brute force attacks (login cracking)
 
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 9 55 24 AM" src="https://github.com/user-attachments/assets/667c26c5-ff60-47be-8244-4930622536c5" />
 
@@ -205,7 +204,7 @@ I saw:
 
 ---
 
-### 🟥 Stage 4: Authentication Analysis (401 → 200 Logic)
+###  Stage 4: Authentication Analysis (401 → 200 Logic)
 
 I observed:
 
@@ -215,13 +214,13 @@ I observed:
 
 I confirmed:
 
-➡️ 401 means invalid credentials
+ 401 means invalid credentials
 
-➡️ attacker is trying multiple passwords
+ attacker is trying multiple passwords
 
 ---
 
-### ⚠️ Problem
+### Problem
 
 * too many attempts
 * passwords encoded
@@ -229,7 +228,7 @@ I confirmed:
 
 ---
 
-### 🧠 Breakthrough Logic
+###  Breakthrough Logic
 
 I thought:
 
@@ -239,7 +238,7 @@ If attacker gets correct credentials → response should be 200
 
 ---
 
-### 🔍 Validation
+###  Validation
 
 * I checked logs → response 200 existed
 * So my logic was correct
@@ -248,7 +247,7 @@ If attacker gets correct credentials → response should be 200
 
 ---
 
-### 🔎 Execution
+###  Execution
 
 I:
 
@@ -257,27 +256,27 @@ I:
 
 Then I opened that event
 
-➡️ That contained the **correct password**
+ That contained the **correct password**
 
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 10 24 59 AM" src="https://github.com/user-attachments/assets/a223bfbc-9c3a-4d5f-8c0c-95a697eda324" />
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 10 25 37 AM" src="https://github.com/user-attachments/assets/f4418be1-082c-498a-a709-81654d5bb9bc" />
 
 ---
 
-### 🔍 Additional Confirmation
+###  Additional Confirmation
 
 I also noticed:
 
 * User-Agent changed from **Hydra → Linux browser**
 
-➡️ This confirmed:
-➡️ attacker successfully logged in
+ This confirmed:
+attacker successfully logged in
 
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 10 26 59 AM" src="https://github.com/user-attachments/assets/16515035-a11b-4b7c-bfbd-948d2f0c238f" />
 
 ---
 
-### 🟥 Stage 5: Post-Login Activity (Web Shell Upload)
+###  Stage 5: Post-Login Activity (Web Shell Upload)
 
 After identifying login success, I:
 
@@ -289,7 +288,7 @@ Now logs were reduced and clearer
 
 ---
 
-### 🔍 Key Finding
+###  Key Finding
 
 I found:
 
@@ -300,11 +299,11 @@ I found:
 
 ---
 
-### 🧠 Interpretation
+###  Interpretation
 
 POST request = data sent to server
 
-➡️ likely file upload
+ likely file upload
 
 ---
 
@@ -314,13 +313,13 @@ I saw:
 
 * command execution (`whoami`)
 
-➡️ This confirmed:
+ This confirmed:
 
 ```text
 Attacker uploaded a web shell
 ```
 
-➡️ attacker now has **remote command execution**
+ attacker now has **remote command execution**
 
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 10 37 58 AM" src="https://github.com/user-attachments/assets/abe82e7c-5091-4a6e-8263-5e5b293a95fa" />
 
@@ -328,7 +327,7 @@ Here In this POST request I got a THM Flag.
 
 ---
 
-### 🟥 Stage 6: Post Exploitation Confusion
+###  Stage 6: Post Exploitation Confusion
 
 At this stage:
 
@@ -367,7 +366,7 @@ Later I realized:
 
 ---
 
-### 🔍 Additional Observation
+###  Additional Observation
 
 I saw:
 
@@ -376,24 +375,24 @@ I saw:
 I did not fully understand the use
 
 But it suggested:
-➡️ attacker manipulating or encoding data
+ attacker manipulating or encoding data
 
 ---
 
-### 🟥 Stage 9: Database Access (phpMyAdmin)
+###  Stage 9: Database Access (phpMyAdmin)
 
 Then I found:
 
 * attacker accessed **phpMyAdmin**
 
-➡️ This means:
-➡️ attacker reached database management interface
+ This means:
+ attacker reached database management interface
 
 <img width="1106" height="698" alt="Screenshot 2026-03-22 at 11 10 25 AM" src="https://github.com/user-attachments/assets/085f885a-4ad8-406a-aaac-329d56560517" />
 
 ---
 
-### 🟥 Stage 10: Database Operations
+###  Stage 10: Database Operations
 
 I observed multiple requests:
 
@@ -410,7 +409,7 @@ I observed multiple requests:
 
 ---
 
-### 🔍 Key  Sensitive Data Discovery
+###  Key  Sensitive Data Discovery
 
 After further searching:
 
@@ -420,9 +419,9 @@ I found:
 
 <img width="1470" height="956" alt="Screenshot 2026-03-22 at 11 15 09 AM" src="https://github.com/user-attachments/assets/579bcd06-27be-4cd7-a39f-b8f208b08a23" />
 
-➡️ This was critical data
+ This was critical data
 
-➡️ Indicates **data access / potential exfiltration**
+Indicates **data access / potential exfiltration**
 
 I found:
 
@@ -441,9 +440,9 @@ Also:
 
 ---
 
-### 🧠 Interpretation
+###  Interpretation
 
-➡️ attacker is:
+ attacker is:
 
 * interacting with database
 * modifying / exporting data
@@ -451,7 +450,7 @@ Also:
 
 ---
 
-## 💀 Full Attack Chain
+##  Full Attack Chain
 
 1. Attacker scans server using Nmap
 2. Uses Gobuster for directory discovery
@@ -467,7 +466,7 @@ Also:
 
 ---
 
-## ⚠️ Challenges & Mistakes
+##  Challenges & Mistakes
 
 * Initial confusion due to too many logs
 * Limited visibility (100 events only)
@@ -477,7 +476,7 @@ Also:
 
 ---
 
-## 🧠 Key Learnings
+##  Key Learnings
 
 * Always start with simple anomalies (404 patterns)
 * Avoid over-filtering early
@@ -488,7 +487,7 @@ Also:
 
 ---
 
-## 🛠️ Tools Used
+##  Tools Used
 
 * Elastic Stack (Kibana)
 * Log analysis
@@ -496,7 +495,7 @@ Also:
 
 ---
 
-## 🚀 Conclusion
+##  Conclusion
 
 This investigation showed how an attacker:
 
