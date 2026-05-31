@@ -937,3 +937,560 @@ File Carving = Recover files using signatures
 Slack Space = Hidden leftover space
 
 Timeline Analysis = Reconstruct attacker activity
+
+---
+
+# FAT32 Forensics - Hidden Files, Timestomping & Deleted Files
+
+## Why Attackers Like FAT32
+
+FAT32 is commonly used in:
+
+- USB drives
+- SD cards
+- IoT devices
+- Embedded systems
+
+FAT32 has no permission system.
+
+This makes it easy for attackers to:
+
+- Hide files
+- Modify timestamps
+- Delete evidence
+
+---
+
+# MITRE ATT&CK Techniques Covered
+
+T1564.001 - Hidden Files and Directories
+
+T1070.006 - Timestomping
+
+T1070.004 - File Deletion
+
+T1070.009 - Clear Persistence
+
+---
+
+# Hidden Files & Directories
+
+## Attacker Goal
+
+Hide malware or tools from normal users.
+
+Example:
+
+malware.exe
+
+Attacker sets:
+
+Hidden Attribute = ON
+
+Result:
+
+Normal users cannot see the file.
+
+---
+
+# How Hidden Files Work in FAT32
+
+Hidden status is stored inside the SFN Entry.
+
+Important field:
+
+Offset 0x0B
+
+Field Name:
+
+Attributes
+
+---
+
+# Common FAT32 Attributes
+
+0x01 = Read Only
+
+0x02 = Hidden
+
+0x04 = System
+
+0x10 = Directory
+
+0x20 = Archive
+
+---
+
+# SOC Investigation
+
+When checking an SFN Entry:
+
+Attribute = 0x02
+
+Meaning:
+
+Hidden File
+
+---
+
+Attribute = 0x13
+
+Meaning:
+
+Read Only + Hidden + Directory
+
+---
+
+# Hidden Directory Example
+
+Directory:
+
+M@LL0V3
+
+Attributes:
+
+0x13
+
+Meaning:
+
+- Read Only
+- Hidden
+- Directory
+
+Investigation Result:
+
+Hidden folder found.
+
+---
+
+# Hidden File Example
+
+File:
+
+BeMyValent1ne.txt
+
+Short Name:
+
+BEMYVA~1.TXT
+
+Attributes:
+
+0x02
+
+Meaning:
+
+Hidden file.
+
+Investigation Result:
+
+Hidden file discovered.
+
+---
+
+# Analyst Workflow for Hidden Files
+
+Step 1
+
+Open image in HxD
+
+---
+
+Step 2
+
+Navigate to Root Directory
+
+Example:
+
+00400000
+
+---
+
+Step 3
+
+Read SFN entries
+
+---
+
+Step 4
+
+Check Attribute byte
+
+Offset:
+
+0x0B
+
+---
+
+Step 5
+
+Identify hidden files and folders
+
+---
+
+# Autopsy Investigation
+
+Autopsy automatically shows:
+
+- Hidden files
+- Hidden folders
+- File metadata
+- Timestamps
+- File content
+
+Useful tabs:
+
+- Hex
+- Text
+- File Metadata
+
+---
+
+# Timestomping
+
+## What Is Timestomping?
+
+Changing timestamps to hide activity.
+
+Attackers modify:
+
+- Creation Time
+- Last Access Time
+- Last Modified Time
+
+---
+
+# Why Attackers Do It
+
+Example:
+
+Attacker creates malware today.
+
+Real timestamp:
+
+2025-01-07
+
+Attacker changes it to:
+
+2021-01-10
+
+Now the file looks old and harmless.
+
+---
+
+# Common Timestomping Signs
+
+## Sign 1
+
+Creation Time > Modified Time
+
+Suspicious
+
+---
+
+## Sign 2
+
+Access Time older than Modification Time
+
+Suspicious
+
+---
+
+## Sign 3
+
+One file has dates very different from all other files
+
+Suspicious
+
+---
+
+# Example From Investigation
+
+File:
+
+install.txt
+
+Problem:
+
+Last Access Date was older than Modified Date.
+
+This is abnormal.
+
+Possible timestamp manipulation.
+
+---
+
+# SOC Analyst Workflow
+
+Collect:
+
+- Creation Time
+- Last Access Time
+- Last Modified Time
+
+Compare them.
+
+Look for inconsistencies.
+
+---
+
+# Timeline Analysis
+
+Purpose:
+
+Reconstruct attacker activity.
+
+Example:
+
+10:00 USB inserted
+
+10:02 malware copied
+
+10:03 malware executed
+
+10:05 persistence created
+
+10:10 logs deleted
+
+---
+
+# Autopsy Timeline
+
+Autopsy Timeline helps:
+
+- Visualize file events
+- Detect timestamp anomalies
+- Detect timestomping
+
+Useful for large investigations.
+
+---
+
+# File Deletion
+
+## Attacker Goal
+
+Remove evidence.
+
+Examples:
+
+- Delete malware
+- Delete scripts
+- Delete logs
+- Delete persistence files
+
+---
+
+# Important Forensic Concept
+
+Delete ≠ Destroy
+
+Deleting a file usually does NOT remove data immediately.
+
+The metadata is marked deleted.
+
+Actual content may still remain on disk.
+
+---
+
+# Detecting Deleted Files
+
+Look for deleted SFN entries.
+
+Deleted entries often begin with:
+
+E5
+
+Example:
+
+E5 53 54 52 49 4B 7E 31
+
+Meaning:
+
+Deleted file entry.
+
+---
+
+# Deleted File Example
+
+Recovered File:
+
+CstrikePers.ps1
+
+Short Name:
+
+STRIKE~1.PS1
+
+Status:
+
+Deleted
+
+---
+
+# Important Metadata
+
+Starting Cluster:
+
+28
+
+File Size:
+
+492 bytes
+
+---
+
+# Recovery Process
+
+Step 1
+
+Find deleted SFN entry.
+
+---
+
+Step 2
+
+Read Starting Cluster.
+
+Example:
+
+Cluster 28
+
+---
+
+Step 3
+
+Navigate to cluster.
+
+---
+
+Step 4
+
+Recover content.
+
+---
+
+Step 5
+
+Analyze recovered file.
+
+---
+
+# Why Deleted Files Matter
+
+Attackers often delete:
+
+- Malware
+- Scripts
+- Payloads
+- Persistence mechanisms
+
+Deleted files may contain valuable evidence.
+
+---
+
+# Recycle Bin Analysis
+
+Always inspect:
+
+$RECYCLE.BIN
+
+Reason:
+
+Deleted files may still exist there.
+
+Many investigators forget this location.
+
+---
+
+# SOC Investigation Checklist
+
+When analyzing a FAT32 image:
+
+✓ Check Root Directory
+
+✓ Check SFN entries
+
+✓ Check hidden attributes
+
+✓ Identify suspicious filenames
+
+✓ Review timestamps
+
+✓ Build timeline
+
+✓ Check deleted entries
+
+✓ Inspect $RECYCLE.BIN
+
+✓ Recover deleted files
+
+✓ Analyze recovered content
+
+---
+
+# Quick Revision
+
+Hidden File
+
+Attribute = 0x02
+
+---
+
+Hidden Directory
+
+Attribute = 0x13
+
+(Read Only + Hidden + Directory)
+
+---
+
+Timestomping
+
+Manipulating timestamps to hide activity.
+
+---
+
+Suspicious Timestamp
+
+Access Date older than Modified Date.
+
+---
+
+Deleted File
+
+May still be recoverable.
+
+---
+
+Deleted Entry
+
+Often starts with E5.
+
+---
+
+Recovery Flow
+
+Deleted Entry
+
+↓
+
+Starting Cluster
+
+↓
+
+Cluster Data
+
+↓
+
+Recovered File
+
+---
+
+SOC Goal
+
+Find:
+
+- Hidden Files
+- Hidden Folders
+- Timestamp Manipulation
+- Deleted Evidence
+- Persistence Artifacts
