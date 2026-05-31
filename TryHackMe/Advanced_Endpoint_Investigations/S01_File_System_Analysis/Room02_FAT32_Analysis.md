@@ -1,4 +1,4 @@
-# FAT32 Filesystem - Easy SOC Notes
+# FAT32 Filesystem 
 
 ## What is a Filesystem?
 
