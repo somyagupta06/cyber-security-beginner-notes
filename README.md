@@ -1,43 +1,55 @@
 
-<h1 align="center">🛡️ Cyber Security Notes</h1>
-<p align="center">Learning Path • Tools • Writeups</p>
+<h1 align="center">🛡️ Cyber Security Notes And Investigations</h1>
+
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Level-Beginner%20to%20SOC%20Level%201-blueviolet?style=for-the-badge"/>
+Threat Hunting • DFIR • Log Analysis • Malware Investigations • Blue Team Learning
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Focus-Blue%20Team-blue?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge"/>
   <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge"/>
-  <img src="https://img.shields.io/badge/Maintainer-Somya%20Gupta-blue?style=for-the-badge"/>
+  <img src="https://img.shields.io/badge/Maintainer-Somya%20Gupta-blueviolet?style=for-the-badge"/>
 </p>
 
 ---
 
-# 📌 Overview  
-This repository contains **structured, beginner-friendly cybersecurity notes**, covering:
+## 📌 Overview
 
-- TryHackMe learning paths (Pre-Security → Cyber Security 101 → SOC Level 1)  
-- OverTheWire Wargames (Bandit & Natas)  
-- picoCTF challenge writeups  
-- Windows, Linux, Networking & Web Fundamentals  
-- OCR-converted notes, diagrams, screenshots, and commands  
+This repository documents my cybersecurity learning journey through:
 
-These notes are ideal for **beginners**, **students**, **SOC analyst aspirants**, and anyone wanting a clear roadmap into cybersecurity.
+* Threat Hunting Investigations
+* DFIR (Digital Forensics & Incident Response) Writeups
+* Malware Analysis Labs
+* Log Analysis & SIEM Investigations
+* TryHackMe Learning Paths
+* OverTheWire Wargames
+* picoCTF Challenges
+* Windows, Linux, Networking, and Security Fundamentals
+
+The goal of this repository is not only to document notes, but also to build a structured collection of investigations, technical writeups, and hands-on cybersecurity learning.
 
 ---
 
-# 📂 Repository Structure
+## 📂 Repository Structure
 
-```
-cyber-security-beginner-notes/
+```text
+cybersecurity-investigations/
+
+├── Investigations/
+│   ├── Slingshot.md
+│   ├── New_Hire_Old_Artifacts.md
+│   ├── Hunt_Me_1_Payment_Collector.md
+│   └── ...
+│
 ├── TryHackMe/
 │   ├── Pre_Security/
-│   │   ├── S1_Intro_To_Cyber_Security/
-│   │   ├── S2_Network_Fundamentals/
-│   │   ├── S3_How_The_Web_Works/
-│   │   ├── S4_Linux_Fundamentals/
-│   │   └── S5_Windows_Fundamentals/
-│   │
 │   ├── Cyber_Security_101/
-│   └── SOC_Level_1/
+│   ├── SOC_Level_1/
+│   ├── SOC_Level_2/
+|   ├── Advanced_Endpoint_Investigation/ 
+│   └── Challenges/
 │
 ├── OverTheWire/
 │   ├── Bandit/
@@ -46,95 +58,148 @@ cyber-security-beginner-notes/
 ├── picoCTF/
 │   └── Writeups/
 │
-├── LICENSE
-└── README.md
+├── README.md
+└── LICENSE
 ```
 
+---
 
+## 🔍 Investigation Portfolio
+
+This repository includes investigation reports covering:
+
+### Endpoint Investigations
+
+* Process Creation Analysis
+* Parent-Child Process Relationships
+* Suspicious Executable Analysis
+* Persistence Mechanisms
+* PowerShell Activity Analysis
+
+### Threat Hunting
+
+* IOC Identification
+* Attack Timeline Reconstruction
+* Event Correlation
+* Log Analysis
+* Behavioral Analysis
+
+### DFIR
+
+* Windows Artifact Analysis
+* Malware Execution Tracing
+* Incident Reconstruction
+* Evidence Collection & Documentation
 
 ---
 
-# 🧭 Learning Paths Included
-# TryHackMe
-## 🔰 1. TryHackMe — Pre Security  
-A complete foundational track covering:  
-- Cyber security introduction  
-- Networking basics  
-- How the web works  
-- Linux fundamentals  
-- Windows fundamentals (Tools, GUI, Security, Updates, Logs)
+## 🛠️ Skills & Technologies
 
-## 🏹 2. TryHackMe — Cyber Security 101  
-Covers core concepts:  
-- Threat landscape  
-- Red vs Blue teams  
-- Malware, attacks, vectors  
-- OS & web security basics
+### SIEM & Log Analysis
 
-## 🛡️ 3. TryHackMe — SOC Level 1  
-Focuses on defensive security:  
-- Logs & SIEM  
-- Traffic analysis  
-- Blue team tools  
-- Detection fundamentals  
+* Splunk
+* Elastic Stack (ELK)
+* Kibana
+* Windows Event Logs
+* Sysmon
 
-# OverTheWire  
-Beginner practical Linux/web exploitation:  
-- Bandit: shell mastery + commands  
-- Natas: web exploitation basics  
+### DFIR
 
-# picoCTF  
-Writeups with:  
-- Steps  
-- Commands  
-- Explanation of vulnerabilities  
-- How the exploit works
+* MBR & GPT Analysis
+* NTFS & FAT32 Analysis
+* Artifact Analysis
+* Timeline Reconstruction
 
----
+### Threat Hunting
 
-# 🪟 Windows Security (Highlights)  
-This repo includes detailed, screenshot-based notes on:
+* IOC Analysis
+* Event Correlation
+* MITRE ATT&CK Mapping
+* Detection Methodologies
 
-- Windows Update & Patch Tuesday  
-- Windows Defender Firewall  
-- SmartScreen  
-- User Account Control (UAC)  
-- Local Security Policy  
-- Event Viewer & Logs  
-- Tools: `taskmgr`, `msconfig`, `gpedit`, `secpol.msc`
+### Networking
+
+* Wireshark
+* TShark
+* TCP/IP
+* DNS
+* HTTP/HTTPS
+
+### Security Tools
+
+* Volatility
+* FTK Imager
+* Autopsy
+* YARA
+* CyberChef
 
 ---
 
-# 🌟 Why This Repository?
+## 🎯 Learning Platforms
 
-✔ Beginner-friendly  
-✔ Structured like a real training path  
-✔ Practical notes + tools + screenshots  
-✔ Helpful for SOC roles & THM paths  
-✔ Updated regularly  
-✔ Easy to navigate + clean formatting  
+### TryHackMe
 
----
+Topics covered include:
 
-# 🚀 Roadmap / Future Additions  
-- [ ] More SOC Level-1 modules  
-- [ ] Linux hardening  
-- [ ] Incident Response basics  
-- [ ] Web security deeper modules  
-- [ ] More picoCTF challenges  
+* Pre Security
+* Cyber Security 101
+* SOC Level 1
+* Security Operations
+* Threat Hunting
+* Incident Response
+* Digital Forensics
 
----
+### OverTheWire
 
-# 🤝 Contributing  
-Pull requests welcome!  
-Before major changes, open an issue to discuss.
+* Bandit
+* Natas
 
----
+### picoCTF
 
-# 📜 License  
-This project is under the **MIT License** — free to use & modify.
+* Web Exploitation
+* Cryptography
+* Forensics
+* Reverse Engineering
+* General Skills
 
 ---
 
-# ⭐ Support  
-If this repo helps you, please give it a **star** ⭐ — it motivates me to update more notes!
+## 🚀 Current Focus
+
+* Threat Hunting
+* SOC Operations
+* Log Analysis
+* DFIR
+* Malware Investigations
+* Windows Internals
+* Detection Engineering
+
+---
+
+## 📈 Ongoing Goals
+
+* Expand investigation portfolio
+* Build more independent DFIR case studies
+* Improve threat hunting methodology
+* Create detection engineering projects
+* Develop blue-team focused tooling
+
+---
+
+## 🤝 Contributing
+
+Suggestions, corrections, and discussions are always welcome.
+
+Feel free to open an issue or submit a pull request.
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License.
+
+---
+
+## ⭐ Support
+
+If you find this repository useful, consider giving it a star ⭐.
